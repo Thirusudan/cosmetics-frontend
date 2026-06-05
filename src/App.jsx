@@ -15,7 +15,6 @@ function App() {
     <BrowserRouter>
        <div className='w-full h-screen flex justify-center items-center'>
          <Toaster position="top-wright" />
-    <div className='w-[calc(100vw-35px)] h-[calc(100vh-15px)] '>
      
      <Routes path="/">
       <Route path="/" element={<HomePage/>}/>
@@ -25,7 +24,7 @@ function App() {
       <Route path="/admin/*" element={<AdminPage/>}/>
      </Routes>
 
-    </div>
+   
 
     </div>
     </BrowserRouter>
