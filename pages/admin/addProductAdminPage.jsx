@@ -339,32 +339,77 @@ const responses = await Promise.all(promisesArray)
 
 
 
-     
-    /*defination for the loop function User selects 3 images
-setImages([file1, file2, file3])
-            ↓
-clicks Add Products
-            ↓
-async handleSubmit() runs
-            ↓
-promisesArray = []  ← empty
-            ↓
-LOOP 3 times:
-i=0 → uploadFile(file1) → promise1 → promisesArray[0]
-i=1 → uploadFile(file2) → promise2 → promisesArray[1]
-i=2 → uploadFile(file3) → promise3 → promisesArray[2]
-            ↓
-Promise.all → all 3 upload at SAME TIME!
-await → wait until ALL done!
-            ↓
-responses = [URL1, URL2, URL3]
-            ↓
-productData.images = responses ✅
-            ↓
-axios.post → send to backend
-            ↓
-       ┌────┴────┐
-    SUCCESS    FAILED
-       ↓          ↓
-  toast ✅    toast ❌
-  navigate    stay on page */
+
+/*mediaUpload.jsx          testPage.jsx
+───────────────          ─────────────
+resolve(publicUrl)  →→→  .then((url))
+      👆                       👆
+ sends this URL         receives same URL!
+ "https://..."          url = "https://..."   */
+
+
+
+
+
+
+
+
+
+
+ 
+ /*image upload full fucntions details
+
+ addProductAdminPage.jsx          mediaUpload.jsx
+════════════════════             ════════════════════
+
+0 — user selects images in input
+    <input multiple type="file"
+    onChange={(e)=>{
+        setImages(e.target.files)
+    }}
+    // e.target.files = all selected files
+    // multiple = allows selecting 3 or more files!
+    // setImages saves all files to useState!
+         ↓
+1 — images state
+    [file1, file2, file3]
+         ↓
+2 — for loop starts
+    i=0 → i=1 → i=2
+         ↓
+3 — uploadFile(images[i]) ──────→ 4 — timeStamp + fileName
+                                       "1780099-file1.jpg"
+                                            ↓
+                                  5 — supabase.upload(fileName)
+                                       saved to bucket! ✅
+                                            ↓
+                                  6 — .then() success
+                                       getPublicUrl(fileName)
+                                            ↓
+                                  7 — resolve(publicUrl)
+                                       URL ready to send back!
+                                            ↓
+                                  8 — .catch() if failed
+                                       reject(error)
+                                            ↓
+                          ←────── 9 — return promise → URL back!
+
+10 — promisesArray[i] = promise
+      stores each promise!
+         ↓
+11 — Promise.all
+      all 3 upload same time!
+         ↓
+12 — await
+      wait until ALL done!
+         ↓
+13 — responses
+      [URL1, URL2, URL3]
+         ↓
+14 — productData.images = responses
+         ↓
+15 — axios.post → MongoDB ✅
+         ↓
+    ┌────┴────┐
+16-then    16-catch
+success!   failed!*/

@@ -23,7 +23,7 @@ export default function uploadFile(file){
             upsert : false
 
         }).then(()=>{
-    /*7*/  const publicUrl = supabsase.storage.from("images").getPublicUrl(file.name).data.publicUrl;
+    /*7*/  const publicUrl = supabsase.storage.from("images").getPublicUrl(fileName).data.publicUrl;
              resolve(publicUrl)
         }).catch(
         (error)=>{
@@ -51,7 +51,7 @@ export default function uploadFile(file){
 
 
  const fileName = timeStamp + "-" + file.name
-//               👆            👆    👆
+//                         
 //          the number    joining  original file name
 //          1780730574099  "-"    "myimage.jpg"
 //          result → "1780730574099-myimage.jpg"
@@ -74,29 +74,65 @@ resolve(publicUrl)  →→→  .then((url))
  "https://..."          url = "https://..."   */
 
 
- /*media upload defination - User selects file
-      ↓
-onChange → setFile(e.target.files[0])
-      ↓
-file saved in useState
 
-User clicks Upload
-      ↓
-handleUpload() runs
-      ↓
-uploadFile(file) called
-      ↓
-timeStamp = 1780730574099
-fileName  = "1780730574099-myimage.jpg"
-      ↓
-supabase.storage.upload(fileName, file)
-      ↓
-    ┌───┴───┐
- success  failed
-    ↓        ↓
-resolve    reject
-(publicUrl) (error)
-    ↓        ↓
- .then()  .catch()
- console   toast
- .log(url) .error()*/
+
+
+ 
+
+ 
+ /*image uploaad full fucntions details
+
+ addProductAdminPage.jsx          mediaUpload.jsx
+════════════════════             ════════════════════
+
+0 — user selects images in input
+    <input multiple type="file"
+    onChange={(e)=>{
+        setImages(e.target.files)
+    }}
+    // e.target.files = all selected files
+    // multiple = allows selecting 3 or more files!
+    // setImages saves all files to useState!
+         ↓
+1 — images state
+    [file1, file2, file3]
+         ↓
+2 — for loop starts
+    i=0 → i=1 → i=2
+         ↓
+3 — uploadFile(images[i]) ──────→ 4 — timeStamp + fileName
+                                       "1780099-file1.jpg"
+                                            ↓
+                                  5 — supabase.upload(fileName)
+                                       saved to bucket! ✅
+                                            ↓
+                                  6 — .then() success
+                                       getPublicUrl(fileName)
+                                            ↓
+                                  7 — resolve(publicUrl)
+                                       URL ready to send back!
+                                            ↓
+                                  8 — .catch() if failed
+                                       reject(error)
+                                            ↓
+                          ←────── 9 — return promise → URL back!
+
+10 — promisesArray[i] = promise
+      stores each promise!
+         ↓
+11 — Promise.all
+      all 3 upload same time!
+         ↓
+12 — await
+      wait until ALL done!
+         ↓
+13 — responses
+      [URL1, URL2, URL3]
+         ↓
+14 — productData.images = responses
+         ↓
+15 — axios.post → MongoDB ✅
+         ↓
+    ┌────┴────┐
+16-then    16-catch
+success!   failed!*/
