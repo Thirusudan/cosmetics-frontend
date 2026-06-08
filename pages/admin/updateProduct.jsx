@@ -1,22 +1,25 @@
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import uploadFile from "../../src/utils/mediaUpload";
 
 
 export default function UpdateProductPage(){
-    const[productId,setProductId]= useState("")  //1
-    const[productName,setProductName]= useState("")
-    const[alternativeNames,setAlternativeNames]= useState("")
-    const[labelledPrice,setLabelledPrice]= useState("")
-    const[price,setPrice]= useState("")
+    const location = useLocation()
+    const[productId,setProductId]= useState(location.state.productId)  //1
+    const[productName,setProductName]= useState(location.state.name)
+    const[alternativeNames,setAlternativeNames]= useState(location.state.altNames.join(","))
+    const[labelledPrice,setLabelledPrice]= useState(location.state.labelledPrice)
+    const[price,setPrice]= useState(location.state.price)
     const[images,setImages]= useState([])
-    const[description,setDescription]= useState("")
-    const[stock,setStock]= useState("")
-    const[isAvailable,setIsAvailable]= useState(true)
-    const[category,setCategory]= useState("cream")
+    const[description,setDescription]= useState(location.state.description)
+    const[stock,setStock]= useState(location.state.stock)
+    const[isAvailable,setIsAvailable]= useState(location.state.isAvailable)
+    const[category,setCategory]= useState(location.state.category)
     const navigate = useNavigate()
+
+console.log(location.state)
 
     /*2*/ async function handleSubmit(){
 
@@ -45,6 +48,10 @@ export default function UpdateProductPage(){
                 isAvailable : isAvailable,
                 category : category
             }
+
+            if(responses.length==0){
+                productData.images = location.state.images
+            }
          /*3*/  const token = localStorage.getItem("token");
 
            if(token == null ){
@@ -52,7 +59,7 @@ export default function UpdateProductPage(){
             return;
            }
 
-         /*4*/  axios.post(import.meta.env.VITE_BACKEND_URL + "/api/products" , productData,
+         /*4*/  axios.put(import.meta.env.VITE_BACKEND_URL + "/api/products/"+productId,productData,
             {
                 headers:{
                     Authorization : "Bearer "+token
@@ -60,15 +67,15 @@ export default function UpdateProductPage(){
             }
         ).then(
             (res)=>{
-                console.log("Product added successfully")
+                console.log("Product updated successfully")
                 console.log(res.data);
-                toast.success("Product added successfullly")
+                toast.success("Product updated successfullly")
                 navigate("/admin/products")
 
         }).catch(
             (error)=>{
-                console.error("Error adding Product:",error)
-                toast.error("Failed to add Product")
+                console.error("Error update Product:",error)
+                toast.error("Failed to update Product")
         })
         console.log(productData)
     }
@@ -78,8 +85,8 @@ export default function UpdateProductPage(){
           <div className="w-[600px] border-[3px] rounded-[15px] flex flex-wrap justify-between p-[40px]">
         <div className="w-[200px] flex flex-col gap-[5px]">
             <label className="text-sm font-semibold">Product Id</label>
-            <input type="text"  
-            /* 1*/ value={productId} onChange={(e)=>{setProductId(e.target.value)}} className="h-[40px]  border-[1px] rounded-md"/>
+            <input disabled type="text"  
+            /* 1*/ value={productId} type="text" onChange={(e)=>{setProductId(e.target.value)}} className="h-[40px]  border-[1px] rounded-md"/>
         </div>
            
            <div className="w-[300px] flex flex-col gap-[5px]">

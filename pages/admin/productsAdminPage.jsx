@@ -81,7 +81,11 @@ return(
        
                 
                     <BiEdit onClick={()=>{
-                        navigate("/admin/updateProduct")
+                        navigate("/admin/updateProduct",
+                            {
+                               state  : product
+                            }
+                        )
                     }} className="bg-blue-500 p-[7px] text-3xl rounded-full text-white shadow-2xl shadow-black cursor-pointer ml-[10px]"/>
                      </td>
                          
