@@ -5,11 +5,12 @@ import { IoPeople } from "react-icons/io5";
 import { IoSettings } from "react-icons/io5";
 import ProductsAdminPage from "./admin/productsAdminPage";
 import AddProductPage from "./admin/addProductAdminPage";
+import UpdateProductPage from "./admin/updateProduct";
 
 export default function AdminPage(){
     return(
         <div className="w-full h-screen  flex">  
-            <div className="w-[300px] h-full flex flex-col items-center"> 
+            <div className="w-[300px] h-full flex flex-col items-center">  
 
             <span className="text-3xl font-bold my-5">Admin Panel</span>
 
@@ -29,6 +30,7 @@ export default function AdminPage(){
             <Route path="/products" element={<ProductsAdminPage/>}/>
             <Route path="/newProduct" element={<AddProductPage/>}/>
             <Route path="/orders" element={<h1>Orders</h1>}/>
+            <Route path="/updateProduct" element={<UpdateProductPage/>}/>
 
             </Routes>
 
