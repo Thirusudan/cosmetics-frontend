@@ -193,9 +193,9 @@ export default function AddProductPage(){
 
 
 //const [productId, setProductId] = useState("")
-//     👆          👆              👆
-//   stores      updates        starts as
-//   the value   the value      empty string ""
+//        👆          👆              👆
+//       stores      updates        starts as
+//       the value   the value      empty string ""
 
 //<input 
  //   type="text"
@@ -247,7 +247,7 @@ fetch("/products/LIP01")*/
 //3 - get token from browser storage token was saved when user logged in, needed to prove user is admin!
 
 
-//4 - send data to backend
+//4 - send data to backend(product create method)
 //import.meta.env.VITE_BACKEND_URL + "/api/products",
 // 👆 backend URL from .env file
 // example: "http://localhost:5000/api/products"
