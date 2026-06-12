@@ -3,18 +3,23 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { BiEdit, BiPlus, BiTrash } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
+import Loader from "../../src/components/loader";
 
 
 export default function ProductsAdminPage(){
 
 /*2*/    const [products,setProducts] = useState([])
-/*6*/    const[a,setA] = useState(0)
-    useEffect(()=>{
-/*3*/  axios.get(import.meta.env.VITE_BACKEND_URL+"/api/products").then((res)=>{
+/*7*/    const[isLoading,setIsLoading] = useState(true)
+        useEffect(()=>{
+            if(isLoading){
+                axios.get(import.meta.env.VITE_BACKEND_URL+"/api/products").then((res)=>{
         setProducts(res.data)
+        setIsLoading(false)
         })
-        },
- /*6*/   [a]
+        }
+            }
+ ,
+ /*7*/   [isLoading]
     )
 
 const navigate = useNavigate()
@@ -22,7 +27,9 @@ const navigate = useNavigate()
 return(
 <div className="w-full h-full border-[3px] ">
 
-   <table>
+  {isLoading ? (
+    <Loader/>
+  ) : ( <table>
 
      <thead>
          <tr>
@@ -70,7 +77,7 @@ return(
                     ).then((res)=>{
                     console.log("Product deleted successfully")
                     toast.success("Product delete successfullly")
-         /*6*/     setA(a+1)     
+         /*7*/      setIsLoading(!isLoading)    
             
                     }).catch(
                     (error)=>{
@@ -96,7 +103,7 @@ return(
                }
         </tbody>
 
-           </table>
+           </table> )}
 
             <Link to={"/admin/newProduct"} className="fixed right-[60px] bottom-[60px] p-[20px] text-white bg-black rounded-full shadow-2xl ">
                 <BiPlus className="text-3xl"/>
@@ -147,9 +154,7 @@ setProducts(res.data)
   map picks ONE product at a time!
   gives to product variable!
 
-  5.
-
-MongoDB
+  5.MongoDB(this is a get function)
 ─────────────────────────────
 [perfume, soap, cream]
         ↓
@@ -230,36 +235,12 @@ setProducts   → NOT run ✅
 STOPS! peaceful! 😊 
 
 
-Admin adds new product
-        ↓
-clicks "Add Products" button
-        ↓
-axios.post → saves to MongoDB ✅
-        ↓
-navigate("/admin/products")
-← this moves to products page!
-        ↓
-products page LOADS FRESH!
-= same as refresh!
-        ↓
-useEffect RUNS! ✅
-        ↓
-axios.get → fetch ALL products
-including NEW product! ✅
-        ↓
-new product shows in table! ✅
-
-
 6 - In the delete function there is a problem. We can delete the product using `axios.delete()`, and MongoDB will also delete it successfully. But the product will still be shown on the page because `useEffect()` only runs when the page loads. If we manually refresh the page, the product will disappear because the latest products are fetched from the backend.
 To solve this problem, we use another state:
 
-const [a, setA] = useState(0)
+7. First, isLoading is true. Since it is true, axios.get runs and fetches the products. Then setProducts(res.data) displays the products on the page. After that, setIsLoading(false) runs — now isLoading is false. useEffect runs again but since isLoading is false, axios.get does not run. It stops.
+When the admin clicks the delete button, axios.delete runs and removes the product. After delete, setIsLoading(!isLoading) runs. Here, before this line isLoading was false, but now it becomes true because of setIsLoading(!isLoading). The value in the dependency array [isLoading] changed from false to true, so when the value changes useEffect runs again. Now isLoading is true, so axios.get runs again and fetches the updated product list. setProducts(res.data) displays the new list on the page. Then setIsLoading(false) runs again — true becomes false. useEffect runs one more time but since isLoading is false, axios.get does not run. It stops.
 
-and add `a` to the `useEffect` dependency array: [a]
-
-After the delete is successful, we write: setA(a + 1)
-
-Initially, `a = 0`. After deleting a product, `a` changes to `1`. Since the value in `[a]` changed, `useEffect()` runs again, gets the latest products from the backend, updates the `products` state, and the deleted product disappears from the table without manually refreshing the page.
-
+8.
 
 */

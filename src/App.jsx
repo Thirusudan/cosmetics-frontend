@@ -8,6 +8,7 @@ import ProductCard from './components/productCard'
 import AdminPage from '../pages/adminPage'
 import TestPage from '../pages/testPage'
 import { Toaster } from 'react-hot-toast'
+import ClientWebPage from '../pages/admin/client/clientPage'
 
 function App() {
 
@@ -17,11 +18,12 @@ function App() {
          <Toaster position="top-wright" />
      
      <Routes path="/">
-      <Route path="/" element={<HomePage/>}/>
       <Route path="/login" element={<LoginPage/>}/>
       <Route path="/test" element={<TestPage/>}/>
       <Route path="/register" element={<RegisterPage/>}/>
       <Route path="/admin/*" element={<AdminPage/>}/>
+      <Route path="/*" element={<ClientWebPage/>}/>
+
      </Routes>
 
    
