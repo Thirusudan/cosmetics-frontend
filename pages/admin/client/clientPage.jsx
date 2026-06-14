@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "../../../src/components/header";
+import ProductsPage from "./productsPage";
 
 export default function ClientWebPage(){
   return(
@@ -9,7 +10,7 @@ export default function ClientWebPage(){
     <div className="w-full h-[calc(100%-100px)] ">
       <Routes path="/">
       <Route path="/" element={<h1 className="text-3xl text-center">Welcome to Home Page</h1>}/>
-      <Route path="/products" element={<h1 className="text-3xl text-center">Products Page</h1>}/>
+      <Route path="/products" element={<ProductsPage/>}/>
       <Route path="/reviews" element={<h1 className="text-3xl text-center">Reviews Page</h1>}/>
       <Route path="/about-us" element={<h1 className="text-3xl text-center">About us Page</h1>}/>
       <Route path="/contact-us" element={<h1 className="text-3xl text-center">Contact us Page</h1>}/>

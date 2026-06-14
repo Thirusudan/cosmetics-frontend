@@ -178,7 +178,7 @@ export default function AddProductPage(){
 
         <div className="w-full  flex justify-center flex-row py-[20px]">
         <Link to={"/admin/products"} className="w-[200px] h-[50px] bg-white text-black border-[2px] rounded-md flex justify-center items-center">Cancel</Link>
-        <button onClick={handleSubmit} className="w-[200px] h-[50px] bg-black text-white border-[2px] rounded-md flex justify-center items-center ml-[20px]">Add Products</button>
+        <button onClick={handleSubmit} className="w-[200px] h-[50px] bg-black text-white border-[2px] rounded-md flex justify-center items-center ml-[20px] cursor-pointer">Add Products</button>
         </div>
 
           </div>
