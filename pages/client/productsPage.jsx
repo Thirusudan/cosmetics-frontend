@@ -7,14 +7,22 @@ export default function ProductsPage(){
 
     const[products,SetProducts]= useState([])
     const[loading, SetLoading] = useState(true)
+    const[query,setQuery] = useState("") //
 
     useEffect(()=>{
         if(loading){
+            if(query ==""){
             axios.get(import.meta.env.VITE_BACKEND_URL+"/api/products").then(
                 (res)=>{
                 SetProducts(res.data)
                 SetLoading(false)
-            }).catch
+            })
+            }else {
+                axios.get(import.meta.env.VITE_BACKEND_URL+"/api/products/search/"+query).then((res)=>{
+                    SetProducts(res.data)
+                    SetLoading(false)
+                })
+            }
         }
     },
     [loading]
@@ -22,8 +30,20 @@ export default function ProductsPage(){
 
     return(
     <div className="w-full h-full">
+        <div className="w-full h-[100px] flex justify-center items-center">
+        <input type="text"
+         placeholder="Search products..."
+         value={query}
+         onChange={(e)=>{
+         setQuery(e.target.value)
+         SetLoading(true)
+         }}
+         className="w-[400px] h-[40px] border border-gray-300 rounded-lg"/>
+        </div>
       {
-        loading? <Loader/> :
+        loading? ( <Loader/> 
+
+        ) : (
         <div className="w-full flex flex-wrap gap-[40px] justify-center items-center p-[20px]">
             { 
                 products.map(
@@ -34,6 +54,7 @@ export default function ProductsPage(){
                 })
             }
         </div>
+        )
       }
 
     </div>
@@ -148,4 +169,115 @@ KEY RULE
 .map variable name     → can be ANYTHING (product, AC, item...)
 prop name (X={X})      → MUST match on both sides!
 props.X in ProductCard → must match the prop name sent!
-const product = ...    → your local name, can be ANYTHING */
+const product = ...    → your local name, can be ANYTHING 
+
+PRODUCT SEACRH PART EXPLAINATION 
+
+STEP 1 — Page loads
+Frontend:
+const [query, setQuery] = useState("")      // query = ""
+const [loading, setLoading] = useState(true) // loading = true
+
+STEP 2 — Since loading is true, useEffect runs
+useEffect(()=>{
+    if(loading){
+        if(query == ""){                     ← query IS "" right now
+
+STEP 3 — Since query is empty, fetch ALL products (no search yet)
+Frontend:
+axios.get(".../api/products").then((res)=>{
+    SetProducts(res.data)
+    SetLoading(false)
+})
+
+STEP 4 — Grid shows every product, spinner stops
+loading = false → Loader disappears → all products shown
+
+──────────────────────────────────────────
+
+STEP 5 — Admin types "al" into the search box
+Frontend:
+<input onChange={(e)=>{
+    setQuery(e.target.value)    ← query becomes "al"
+    SetLoading(true)            ← loading becomes true
+}}/>
+
+STEP 6 — Since loading changed, useEffect runs again
+useEffect(()=>{
+    if(loading){
+        if(query == ""){ ... }
+        else {                                ← query is NOT "" now
+
+STEP 7 — Fetch SEARCH results instead
+Frontend:
+axios.get(".../api/products/search/" + query).then((res)=>{
+    SetProducts(res.data)
+    SetLoading(false)
+})
+// sends: GET /api/products/search/al
+
+──────────────────────────────────────────
+
+STEP 8 — Backend receives the request
+export async function searchProducts(req,res){
+    const query = req.params.query    ← query = "al"
+
+STEP 9 — Backend searches MongoDB
+try{
+    const products = await Product.find({
+        $or:[
+            { name : {$regex:query , $options: "i"} },
+            { altNames : {$elemMatch :{$regex:query, $options:"i"}}}
+        ],
+        isAvailable:true
+    })
+    return res.json(products)
+}catch{
+    res.status(500).json({message: "Failed to search products"})
+}
+
+$or: [...] means "match if EITHER of these two conditions is true — not both required."
+  Condition 1: name matches the search text
+  Condition 2: altNames (the array) has at least one match
+So a product counts as a match if the search text is found in its NAME, OR in one of its
+altNames — only one needs to match, not both.
+
+Example 1: product name = "Aloevera Cream", admin types "al"
+$regex checks: does "al" appear ANYWHERE inside "Aloevera Cream"? → YES (partial match, not exact)
+$options: "i" makes it ignore uppercase/lowercase → "al" still matches "Al" in "Aloevera"
+→ Condition 1 (name) is TRUE → because of $or, this product is already a match
+
+Example 2: product name = "Face Wash", altNames = ["Aloe Face Wash", "Gentle Cleanser"]
+admin types "al"
+Condition 1 (name): does "Face Wash" contain "al"? → NO
+Condition 2 (altNames): $elemMatch checks each item in the array —
+   "Aloe Face Wash" contains "al"? → YES
+→ Condition 2 is TRUE → because of $or, this product is STILL a match
+
+isAvailable: true → required separately (AND, outside the $or), so hidden or unavailable
+products never show up in search results, even if their name/altNames match
+
+STEP 10 — Backend sends matching products back
+res.json(products)   // e.g. [ {name:"Aloevera Cream"}, {name:"Face Wash", altNames:["Aloe Face Wash"]} ]
+
+──────────────────────────────────────────
+
+STEP 11 — Frontend receives the response
+.then((res)=>{
+    SetProducts(res.data)   ← grid updates to ONLY matching products
+    SetLoading(false)       ← spinner stops
+})
+
+STEP 12 — Grid now shows only search results
+Admin sees only products matching "al"
+
+──────────────────────────────────────────
+
+STEP 13 — Admin clears the search box
+setQuery("")      ← query becomes "" again
+SetLoading(true)  ← loading becomes true
+
+STEP 14 — useEffect runs again, query is "" → back to STEP 3
+Fetches ALL products again → grid shows everything, like at the start
+
+*/

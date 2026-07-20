@@ -10,7 +10,7 @@ export default function LoginPage(){
     const navigate = useNavigate() //3
 /*8*/    const googleLogin = useGoogleLogin({onSuccess:(response)=>{
 /*9*/           axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/google-login",{
-/*9*/            token : response.access_token
+/*9*/            token : response.access_token 
             }).then(
                 (response)=>{
                console.log(response.data)
