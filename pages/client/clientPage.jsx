@@ -6,6 +6,7 @@ import CartPage from "./cart";
 import CheckoutPage from "./checkoutPage";
 import HomePage from "../homePage";
 
+
 export default function ClientWebPage(){
   return(
   <div className="w-full h-screen max-h-screen ">
@@ -21,6 +22,7 @@ export default function ClientWebPage(){
       <Route path="/cart" element={<CartPage/>}/>
       <Route path="/checkout" element={<CheckoutPage/>}/>
       <Route path="/overview/:productId" element={<ProductOverViewPage/>}/>
+      
       <Route path="/*" element={<h1 className="text-3xl text-center">404 Not found</h1>}/>
       
       </Routes>

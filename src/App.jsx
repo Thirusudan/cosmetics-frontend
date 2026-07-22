@@ -10,6 +10,8 @@ import TestPage from '../pages/testPage'
 import { Toaster } from 'react-hot-toast'
 import ClientWebPage from '../pages/client/clientPage'
 import { GoogleOAuthProvider } from '@react-oauth/google'
+import ForgetPasswordPage from '../pages/client/forgetPassword'
+
 
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
 
@@ -26,6 +28,7 @@ function App() {
       <Route path="/test" element={<TestPage/>}/>
       <Route path="/register" element={<RegisterPage/>}/>
       <Route path="/admin/*" element={<AdminPage/>}/>
+      <Route path="/forget" element={<ForgetPasswordPage/>}/>
       <Route path="/*" element={<ClientWebPage/>}/>
 
      </Routes>
