@@ -78,7 +78,7 @@ export default function LoginPage(){
           
           type="password" className="w-[350px] h-[40px] border border-white rounded-xl"/>
         </div>
-       <button onClick={login} className="w-[350px] h-[40px] bg-blue-500 rounded-xl text-white text-lg mt-5 hover:bg-blue-600 transition-all duration-300">Login</button>
+       <button onClick={login} className="w-[350px] h-[40px] bg-blue-500 rounded-xl text-white text-lg mt-5 hover:bg-blue-600 transition-all duration-300 cursor-pointer ">Login</button>
 
 {/*7*/}     <button onClick={googleLogin} className="w-[350px] h-[40px] bg-blue-500 rounded-xl text-white text-lg mt-5 hover:bg-blue-600 transition-all duration-300">Google Login</button>
 

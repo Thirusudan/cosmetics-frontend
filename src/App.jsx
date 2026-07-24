@@ -11,6 +11,7 @@ import { Toaster } from 'react-hot-toast'
 import ClientWebPage from '../pages/client/clientPage'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import ForgetPasswordPage from '../pages/client/forgetPassword'
+import ReviewPage from '../pages/client/reviewsPage'
 
 
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
