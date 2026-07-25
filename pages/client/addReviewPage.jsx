@@ -36,7 +36,7 @@ function submit(){
     (res)=>{
       console.log(res.data)
       toast.success("Thank you for Review")
-       navigate("/review")
+       navigate("/reviews")
   }).catch((err)=>{
         console.error(err)
         toast.error("Failed to add review try again")
@@ -105,7 +105,7 @@ function submit(){
                 Submit
             </button>
 
-                 <Link to={"/review"} className="w-[200px] h-[50px] text-2xl bg-white text-black right-[10px] rounded-xl borer-[3px] border bg-black" > 
+                 <Link to={"/reviews"} className="w-[200px] h-[50px] text-2xl bg-white text-black right-[10px] rounded-xl borer-[3px] border bg-black" > 
                Cancel
             </Link>
         
