@@ -1,5 +1,9 @@
 export default function ReviewsPage(){
      return(
-        <div className=""></div>
+        <div className="w-full h-full">
+            <div>
+                
+            </div>
+        </div>
      )
 }

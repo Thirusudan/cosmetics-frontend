@@ -44,7 +44,7 @@ export default function ProductsPage(){
         loading? ( <Loader/> 
 
         ) : (
-        <div className="w-full flex flex-wrap gap-[40px] justify-center items-center p-[20px]">
+        <div className="w-full flex flex-wrap gap-[40px] justify-center items-center p-[20px] ">
             { 
                 products.map(
                     (product)=>{

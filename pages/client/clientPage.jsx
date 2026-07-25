@@ -5,8 +5,8 @@ import ProductOverViewPage from "./productOverview";
 import CartPage from "./cart";
 import CheckoutPage from "./checkoutPage";
 import HomePage from "../homePage";
-
 import ReviewsPage from "./reviewsPage";
+import AddReviewpage from "./addReviewPage";
 
 
 export default function ClientWebPage(){
@@ -19,11 +19,14 @@ export default function ClientWebPage(){
       <Route path="/" element={<HomePage/>}/>
       <Route path="/products" element={<ProductsPage/>}/>
       <Route path="/reviews" element={<ReviewsPage/>}/>
+      <Route path="/addreview" element={<AddReviewpage/>}/>
       <Route path="/about-us" element={<h1 className="text-3xl text-center">About us Page</h1>}/>
       <Route path="/contact-us" element={<h1 className="text-3xl text-center">Contact us Page</h1>}/>
       <Route path="/cart" element={<CartPage/>}/>
       <Route path="/checkout" element={<CheckoutPage/>}/>
       <Route path="/overview/:productId" element={<ProductOverViewPage/>}/>
+
+            
       
       <Route path="/*" element={<h1 className="text-3xl text-center">404 Not found</h1>}/>
       
