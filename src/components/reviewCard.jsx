@@ -5,8 +5,8 @@ export default function ReviewCard(props){
     const review = props.review
 
     return(
-        <div className="w-[700px] h-[500px] shadow-2xl shrink-0 flex flex-col overflow-hidden rounded-xl ">
-          <div className="w-full h-[100px] flex">
+        <div className="w-full h-[500px] shadow-2xl shrink-0 flex flex-col overflow-hidden rounded-xl ">
+          <div className="w-full h-[100px] flex px-[20px] items-center">
              {[1,2,3,4,5].map((item)=>(
                 item <= review.rating
                 ?
@@ -16,11 +16,11 @@ export default function ReviewCard(props){
             ))}
           </div>
 
-          <div className="w-full h-[300px]">
-          <span className="text-2xl">{review.review}</span>
+          <div className="w-full h-[300px] flex-1 overflow-hidden hover:overflow-y-auto px-[20px]">
+          <span className="text-lg ">{review.review}</span>
           </div>
 
-          <div className="text-2xl w-full h-[100px]">
+          <div className="text-lg w-full h-[100px] mt-auto px-[20px]">
         <span>{review.name}</span>
           </div>
            

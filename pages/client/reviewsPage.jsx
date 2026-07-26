@@ -7,25 +7,25 @@ import { Link } from "react-router-dom"
 export default function ReviewsPage(){
 
     const [reviews, setReviews] = useState([])
-    const [loading, setLoading] =useState(true)
+    const [isloading, setIsLoading] =useState(true)
 
     useEffect(()=>{
-       if(loading){
+       if(isloading){
         axios.get(import.meta.env.VITE_BACKEND_URL +"/api/review").then(
             (res)=>{
                 console.log(res.data)
                 setReviews(res.data)
-                setLoading(false)
+                setIsLoading(false)
         })
        }
-    },[loading]
+    },[isloading]
 )
 
      return(
 
-        <div className="w-full h-full realtive">
+        <div className="w-full realtive min-h-screen bg-primary">
             {
-              loading ? (<Loader/>
+              isloading ? (<Loader/>
               ):(  
                <div>
                 <div>
@@ -37,7 +37,8 @@ export default function ReviewsPage(){
                     reviews.map(
                         (review)=>{
                         return(
-                            <ReviewCard key={review.id} review={review}/>
+                            
+                            <ReviewCard key={review._id} review={review}/>
                         )
                     })
                 }
