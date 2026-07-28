@@ -58,11 +58,11 @@ export default function Header(){
            />
  
 {/*3*/}    <div className="hidden w-full md:flex justify-center  items-center">
-           <Link to="/" className="text-white text-xl ">Home</Link>
-           <Link to="/products" className="text-white text-xl ml-4">Products</Link>
-           <Link to="/reviews" className="text-white text-xl ml-4">Reviews</Link>
-           <Link to="/about-us" className="text-white text-xl ml-4">About us</Link>
-           <Link to="/contact-us" className="text-white text-xl ml-4">Contact Us</Link>
+           <Link to="/" className="text-white text-xl font-bold ">Home</Link>
+           <Link to="/products" className="text-white text-xl ml-4 font-bold">Products</Link>
+           <Link to="/reviews" className="text-white text-xl ml-4 font-bold">Reviews</Link>
+           <Link to="/about-us" className="text-white text-xl ml-4 font-bold">About us</Link>
+           <Link to="/contact-us" className="text-white text-xl ml-4 font-bold">Contact Us</Link>
            <Link to="/cart" className="absolute right-[80px]">
            <BiCart className="text-white text-3xl m1-4"/>
            </Link>

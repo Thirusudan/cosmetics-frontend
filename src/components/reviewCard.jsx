@@ -5,7 +5,7 @@ export default function ReviewCard(props){
     const review = props.review
 
     return(
-        <div className="w-full h-[500px] shadow-2xl shrink-0 flex flex-col overflow-hidden rounded-xl ">
+        <div className="w-full h-[500px] shadow-2xl shrink-0 flex flex-col overflow-hidden rounded-xl bg-[#e8efe4] border border-bg-accent border-[2px] ">
           <div className="w-full h-[100px] flex px-[20px] items-center">
              {[1,2,3,4,5].map((item)=>(
                 item <= review.rating
