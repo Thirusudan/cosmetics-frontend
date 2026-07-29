@@ -53,6 +53,7 @@ function submit(){
             <input type="text" onChange={(e)=>{
               setName(e.target.value)
             }}
+            value={name}
             placeholder="Enter Your name here" 
             className="w-[350px] h-[40px] border-[2px] rounded-[10px]"/>
 
@@ -64,6 +65,7 @@ function submit(){
               setEmail(e.target.value)
             }} type="text" 
             placeholder="Enter Your Email here" 
+            value={email}
             className="w-[350px] h-[40px] border-[2px] rounded-[10px]"/>
 
         </div>
@@ -83,6 +85,7 @@ function submit(){
                             <CiStar
                                 key={item}
                                 onClick={() => setStar(item)}
+                                  value={rating}
                                 className="cursor-pointer text-4xl text-yellow-500"
                             />
                         ))}
@@ -94,7 +97,8 @@ function submit(){
          <div className="w-full flex flex-col text-xl ">
             <span>Review</span>
     
-           <textarea  placeholder="Drop your Review here" className="w-full h-[300px] border-[2px] rounded-[20px]" onChange={(e)=>{
+           <textarea  placeholder="Drop your Review here" className="w-full h-[300px] border-[2px] rounded-[20px]"    value={review} 
+              onChange={(e)=>{
               setReview(e.target.value)
             }} type="text" >
             

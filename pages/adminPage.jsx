@@ -22,7 +22,7 @@ export default function AdminPage(){
 
              <Link className="flex flex-row h-[60px] w-full border p-[20px] items-center text-xl gap-[25px]"  to="/admin/Review"><IoPeople />Review</Link>
 
-             <Link className="flex flex-row h-[60px] w-full border p-[20px] items-center text-xl gap-[25px]"  to="/admin/settings"><IoSettings />Settings</Link>
+             <Link className="flex flex-row h-[60px] w-full border p-[20px] items-center text-xl gap-[25px]"  to="/admin/settings"><IoSettings />Contact</Link>
 
             </div>
            

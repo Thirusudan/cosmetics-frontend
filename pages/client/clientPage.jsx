@@ -8,7 +8,7 @@ import HomePage from "../homePage";
 import ReviewsPage from "./reviewsPage";
 import AddReviewpage from "./addReviewPage";
 import Aboutuspage from "../aboutusPage";
-import ContactusPage from "../contactuspage";
+import ContactusPage from "../contactusPage";
 
 
 export default function ClientWebPage(){
