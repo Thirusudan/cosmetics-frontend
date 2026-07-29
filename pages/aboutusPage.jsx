@@ -5,7 +5,7 @@ export default function Aboutuspage(){
 
             </div>
 
-             <div className="w-[950px] h-[600px] mt-[100px]">
+             <div className="w-[750px] h-[550px] mt-[100px]">
 
             <div className="w-[950px] h-[160px]  p-[5px]">
            <h1 className="text-accent font-bold text-4xl">Our story</h1>

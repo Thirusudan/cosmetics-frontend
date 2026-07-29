@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #ECE8E5;   /* dominant background - use ~60% of the page */
+  --color-primary: #FAF9F6;   /* dominant background - use ~60% of the page */
   --color-secondary : #2C2C2C;   /* text color - use ~30% of the page */
   --color-accent : #1A4731 /* buttons/highlights - use ~10% of the page (This is Dark blue color and using 10% but it is only color in customer mind you can see in daraz, daraz is using orange color 10% if someone ask what color is daraz the answer is orange )*/ 
 }

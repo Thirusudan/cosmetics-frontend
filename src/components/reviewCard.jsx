@@ -23,6 +23,11 @@ export default function ReviewCard(props){
           <div className="text-lg w-full h-[100px] mt-auto px-[20px]">
         <span>{review.name}</span>
           </div>
+          
+        <div className="text-gray-500 text-lg px-[20px] mb-[10px]">
+    {new Date(review.createdAt).toLocaleString()}
+</div>
+         
            
         </div>
     )

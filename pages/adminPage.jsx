@@ -8,6 +8,7 @@ import AddProductPage from "./admin/addProductAdminPage";
 import UpdateProductPage from "./admin/updateProduct";
 import OrdersPageAdmin from "./admin/ordersPageAdmin";
 import DeleteReviewpage from "./admin/deleteReviewPage";
+import ContactPageAdmin from "./admin/contactPageAdmin";
 
 export default function AdminPage(){
     return(
@@ -22,7 +23,7 @@ export default function AdminPage(){
 
              <Link className="flex flex-row h-[60px] w-full border p-[20px] items-center text-xl gap-[25px]"  to="/admin/Review"><IoPeople />Review</Link>
 
-             <Link className="flex flex-row h-[60px] w-full border p-[20px] items-center text-xl gap-[25px]"  to="/admin/settings"><IoSettings />Contact</Link>
+             <Link className="flex flex-row h-[60px] w-full border p-[20px] items-center text-xl gap-[25px]"  to="/admin/contact"><IoSettings />Contact</Link>
 
             </div>
            
@@ -33,6 +34,7 @@ export default function AdminPage(){
             <Route path="/newProduct" element={<AddProductPage/>}/>
             <Route path="/orders" element={<OrdersPageAdmin/>}/>
             <Route path="/review" element={<DeleteReviewpage/>}/>
+            <Route path="/contact" element={<ContactPageAdmin/>}/>
             <Route path="/updateProduct" element={<UpdateProductPage/>}/>
           
             </Routes>
