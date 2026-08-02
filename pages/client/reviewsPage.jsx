@@ -30,9 +30,9 @@ export default function ReviewsPage(){
                <div>
                 <div>
                 <h1 className="text-4xl text-center pt-[20px] font-bold">What our clients say</h1>
-                <Link to={"/addreview"} className="absolute right-[100px] w-[190px] h-[50px] bg-accent text-white text-xl text-center justify-center items-center  ml-[20px] top-[130px] font-bold rounded-xl flex justify-center items-center hover:bg-white hover:text-accent border-[2px] border-bg-accent ">Drop a Review</Link>
+                <Link to={"/addreview"} className="absolute right-[100px] w-[170px] h-[45px] bg-accent text-white text-xl text-center justify-center items-center  ml-[20px] top-[130px] font-bold rounded-xl flex justify-center items-center hover:bg-white hover:text-accent border-[2px] border-bg-accent ">Drop a Review</Link>
                 </div>
-            <div className="w-full w-full grid grid-cols-3 flex-wrap gap-[40px] p-[40px] px-[40px] ">
+            <div className="w-full flex-wrap grid grid-cols-2 gap-[40px] p-[40px] px-[40px] ">
                 {
                     reviews.map(
                         (review)=>{

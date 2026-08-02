@@ -7,8 +7,8 @@ import ProductsAdminPage from "./admin/productsAdminPage";
 import AddProductPage from "./admin/addProductAdminPage";
 import UpdateProductPage from "./admin/updateProduct";
 import OrdersPageAdmin from "./admin/ordersPageAdmin";
-import DeleteReviewpage from "./admin/deleteReviewPage";
 import ContactPageAdmin from "./admin/contactPageAdmin";
+import ManageReviewPage from "./admin/manageReviewPage";
 
 export default function AdminPage(){
     return(
@@ -33,7 +33,7 @@ export default function AdminPage(){
             <Route path="/products" element={<ProductsAdminPage/>}/>
             <Route path="/newProduct" element={<AddProductPage/>}/>
             <Route path="/orders" element={<OrdersPageAdmin/>}/>
-            <Route path="/review" element={<DeleteReviewpage/>}/>
+            <Route path="/review" element={<ManageReviewPage/>}/>
             <Route path="/contact" element={<ContactPageAdmin/>}/>
             <Route path="/updateProduct" element={<UpdateProductPage/>}/>
           

@@ -26,7 +26,7 @@ export default function HomePage() {
             <span>✔ Free From Harmful Chemicals</span>
             <span>✔ Sustainable & Eco-Friendly Packaging</span>
           </div>
-          <Link to={"/products"} className=" text-white bg-accent w-[150px] h-[40px] mt-[20px] rounded-[10px] font-bold text-xl flex justify-center items-center flex justify-center items-center">Shop Now</Link>
+          <Link to={"/products"} className=" text-white bg-accent w-[150px] h-[40px] mt-[20px] rounded-[10px] font-bold text-xl flex justify-center items-center  hover:bg-white hover:text-accent border-[2px] border-accent">Shop Now</Link>
 
         </div>
 

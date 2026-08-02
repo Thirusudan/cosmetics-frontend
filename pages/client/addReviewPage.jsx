@@ -85,7 +85,6 @@ function submit(){
                             <CiStar
                                 key={item}
                                 onClick={() => setStar(item)}
-                                  value={rating}
                                 className="cursor-pointer text-4xl text-yellow-500"
                             />
                         ))}

@@ -90,8 +90,8 @@ return(
       </table> 
       {
 /*5*/        popupVisibile &&clickedOrder && (
-            <div className="fixed top-0 left-0 w-full h-full bg-[#00000050] flex justify-center items-center z-50">
-             <div className="w-full max-w-2xl max-h-[90vh] bg-white rounded-lg p-6 relative shadow-xl">
+            <div className="fixed top-0 left-0 w-full h-full bg-[#00000050] flex justify-center items-center z-50 ">
+             <div className="w-full max-w-2xl max-h-[90vh] bg-white rounded-lg p-6 relative shadow-xl ">
                {
               (orderStatus!= clickedOrder.status || orderNotes!= clickedOrder.notes)&&<button className="absolute top-2 right-2 bg-blue-500 text-white p-2 rounded-lg cursor-pointer" onClick={async()=>{
                 setPopVisibile(false)
