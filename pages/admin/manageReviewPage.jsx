@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom"
 import { BiTrash } from "react-icons/bi"
 import ReviewCard from "../../src/components/reviewCard"
 import toast from "react-hot-toast"
+import { FaStar } from "react-icons/fa"
+import { CiStar } from "react-icons/ci"
 
 export default function ManageReviewPage(){
     const navigate = useNavigate()
@@ -13,8 +15,12 @@ export default function ManageReviewPage(){
 
     {/*Reply popup state - controls whether popup shows, which review is selected, and the text being typed*/}
     const [replyPopupVisible, setReplyPopupVisible] = useState(false)
+    //controls whether the reply popup shows on screen
     const [selectedReview, setSelectedReview] = useState(null)
+    //stores the whole review object the admin clicked "Reply" or "Edit Reply" on
     const [replyText, setReplyText] = useState("")
+   // holds whatever text is currently typed in the popup's textarea
+
 
     useEffect(()=>{
        if(isloading){
@@ -91,7 +97,7 @@ export default function ManageReviewPage(){
         <div className="w-full h-full realtive ">
             {
               isloading ? (<Loader/>) : (
-                <div className="w-full flex flex-col gap-[20px] p-[40px] px-[40px]">
+                <div className="w-full flex flex-col gap-[20px] p-[40px] px-[40px] ">
                     {
                         reviews.map((review)=>{
                             return(
@@ -100,7 +106,7 @@ export default function ManageReviewPage(){
 
                                     {/*Delete Review button - deletes whole review*/}
                                     <BiTrash
-                                        className="bg-red-500 absolute text-white rounded-full text-3xl p-[5px] cursor-pointer top-3 right-3"
+                                        className="bg-red-500 text-white rounded-full text-3xl p-[5px] cursor-pointer absolute top-[-2px] right-[-35px]"
                                         onClick={()=>deleteReview(review._id)}
                                     />
 
@@ -126,7 +132,7 @@ export default function ManageReviewPage(){
             {/*Reply popup - only shows when replyPopupVisible is true AND a review is selected, same pattern as the orders popup*/}
             {
                 replyPopupVisible && selectedReview && (
-                    <div className="fixed top-0 left-0 w-full h-full bg-[#00000050] flex justify-center items-center z-50">
+                    <div className="fixed top-0 left-0 w-full h-full bg-[#00000050] flex justify-center items-center z-50 ">
                         <div className="w-full max-w-xl bg-white rounded-lg p-6 relative shadow-xl">
 
                             {/*Close button - just closes popup, no save*/}
@@ -139,12 +145,29 @@ export default function ManageReviewPage(){
 
                             <h2 className="text-2xl font-semibold mb-4">Reply to {selectedReview.name}</h2>
 
+                            <div className="flex gap-1 mb-5">
+    {[1,2,3,4,5].map((item)=>(
+        item <= selectedReview.rating
+        ?
+        <FaStar key={item} className="text-yellow-500 text-xl"/>
+        :
+        <CiStar key={item} className="text-yellow-500 text-xl"/>
+    ))}
+</div>
+
+<div className="text-gray-500 text-sm mb-4  absolute top-[5px] right-[15px]">
+    {new Date(selectedReview.createdAt).toLocaleString()}
+</div>
+
+
                             {/*Original review shown read-only for context*/}
                             <p className="text-gray-600 mb-4">{selectedReview.review}</p>
 
+                  
+
                             {/*Write a Reply function*/}
                             <textarea
-                                className="w-full h-[100px] p-2 border rounded mb-4"
+                                className="w-full h-[150px] p-2 border rounded mb-4"
                                 placeholder="Write a Reply"
                                 value={replyText}
                                 onChange={(e)=>setReplyText(e.target.value)}

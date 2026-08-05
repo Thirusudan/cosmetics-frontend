@@ -45,10 +45,11 @@ function submit(){
 
 
     return(
-      <div className="w-full h-full flex justify-center items-center "> 
-        <div className="w-[1000px] h-[750px] border-[2px] border-accent rounded-[30px] flex flex-col p-[10px]">
-         <h1 className="text-3xl font-bold text-center ">Submit your Review</h1>
-        <div className="w-[350px] flex flex-col text-xl ">
+      <div className="w-full min-h-screen  flex justify-center items-center fixed"> 
+        <div className="w-full max-w-[1000px] border-[2px] border-accent rounded-[30px] flex flex-col p-[10px] absolute top-[20px]">
+         <h1 className="text-xl font-bold text-center ">Submit your Review</h1>
+         <div className="w-full flex flex-row gap-[40px]">
+        <div className="w-[350px] flex flex-col text-md ">
             <span>Name</span>
             <input type="text" onChange={(e)=>{
               setName(e.target.value)
@@ -58,8 +59,7 @@ function submit(){
             className="w-[350px] h-[40px] border-[2px] rounded-[10px]"/>
 
         </div>
-
-          <div className="w-[350px] flex flex-col text-xl ">
+          <div className="w-[350px] flex flex-col text-md ">
             <span>Email</span>
             <input onChange={(e)=>{
               setEmail(e.target.value)
@@ -69,8 +69,9 @@ function submit(){
             className="w-[350px] h-[40px] border-[2px] rounded-[10px]"/>
 
         </div>
+        </div>
 
-         <div className="w-[350px] flex flex-col text-xl ">
+         <div className="w-[350px] flex flex-col text-md ">
             <span>Rating</span>
             <div className="flex gap-1">
                         {[1, 2, 3, 4, 5].map((item) => (
@@ -93,22 +94,22 @@ function submit(){
 
         </div>
 
-         <div className="w-full flex flex-col text-xl ">
+         <div className="w-full flex flex-col text-md ">
             <span>Review</span>
     
-           <textarea  placeholder="Drop your Review here" className="w-full h-[300px] border-[2px] rounded-[20px]"    value={review} 
+           <textarea  placeholder="Drop your Review here" className="w-full h-[200px] border-[2px] rounded-[20px]"    value={review} 
               onChange={(e)=>{
               setReview(e.target.value)
             }} type="text" >
             
            </textarea >
         </div>
-        <div className="w-full flex justify-center items center relative pt-[20px]">
-            <button className="w-[200px] h-[50px] text-2xl bg-black text-white absolute left-[150px] rounded-xl cursor-pointer" onClick={submit}> 
+        <div className="w-full flex  items center  pt-[20px] gap-[20px]">
+            <button className="w-[100px] h-[40px] text-md bg-accent text-white  rounded-xl cursor-pointer hover:bg-white hover:text-accent border-[2px] border-accent transition-colors" onClick={submit}> 
                 Submit
             </button>
 
-                 <Link to={"/reviews"} className="w-[200px] h-[50px] text-2xl bg-white text-black right-[10px] rounded-xl borer-[3px] border bg-black" > 
+                 <Link to={"/reviews"} className="w-[100px] h-[40px] text-md bg-white bg-white text-accent  rounded-xl border-[2px] border-accent  flex justify-center items-center hover:bg-accent hover:text-white transition-colors " > 
                Cancel
             </Link>
         

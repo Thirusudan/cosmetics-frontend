@@ -36,7 +36,7 @@ export default function ReviewCard(props){
 
           {
             review.reply && review.reply.text && (
-                <div className="w-full bg-white rounded-lg p-[10px] border-l-[4px] border-accent">
+                <div className="w-full bg-white rounded-lg p-[10px] border-l-[4px] border-accent mt-auto">
                     <span className="font-bold text-sm text-accent">Reply from CBC Cosmetics</span>
                     <p className="text-md">{review.reply.text}</p>
                 </div>
