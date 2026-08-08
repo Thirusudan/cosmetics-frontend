@@ -46,32 +46,33 @@ function submit(){
 
     return(
       <div className="w-full min-h-screen  flex justify-center items-center fixed"> 
-        <div className="w-full max-w-[1000px] border-[2px] border-accent rounded-[30px] flex flex-col p-[10px] absolute top-[20px]">
+        <div className="w-full max-w-[1000px] border-[2px] border-accent rounded-[30px] flex flex-col p-[10px] absolute top-[20px] animate-[fadeInUp_0.6s_ease-out_both]"> 
          <h1 className="text-xl font-bold text-center ">Submit your Review</h1>
          <div className="w-full flex flex-row gap-[40px]">
-        <div className="w-[350px] flex flex-col text-md ">
+        <div className="w-[350px] flex flex-col text-md  animate-[fadeInUp_0.5s_ease-out_0.1s_both]">
             <span>Name</span>
             <input type="text" onChange={(e)=>{
               setName(e.target.value)
+              
             }}
             value={name}
             placeholder="Enter Your name here" 
-            className="w-[350px] h-[40px] border-[2px] rounded-[10px]"/>
+            className="w-[350px] h-[40px] border-[2px] rounded-[10px]  transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"/>
 
         </div>
-          <div className="w-[350px] flex flex-col text-md ">
+          <div className="w-[350px] flex flex-col text-md animate-[fadeInUp_0.5s_ease-out_0.2s_both]">
             <span>Email</span>
             <input onChange={(e)=>{
               setEmail(e.target.value)
             }} type="text" 
             placeholder="Enter Your Email here" 
             value={email}
-            className="w-[350px] h-[40px] border-[2px] rounded-[10px]"/>
+            className="w-[350px] h-[40px] border-[2px] rounded-[10px]  transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"/>
 
         </div>
         </div>
 
-         <div className="w-[350px] flex flex-col text-md ">
+         <div className="w-[350px] flex flex-col text-md animate-[fadeInUp_0.5s_ease-out_0.3s_both]">
             <span>Rating</span>
             <div className="flex gap-1">
                         {[1, 2, 3, 4, 5].map((item) => (
@@ -80,13 +81,13 @@ function submit(){
                             <FaStar
                                 key={item}
                                 onClick={() => setStar(item)}
-                                className="cursor-pointer text-4xl text-yellow-500"
+                                className="cursor-pointer text-4xl text-yellow-500 transition-transform duration-150 hover:scale-125"
                             />
                             :
                             <CiStar
                                 key={item}
                                 onClick={() => setStar(item)}
-                                className="cursor-pointer text-4xl text-yellow-500"
+                                className="cursor-pointer text-4xl text-yellow-500 transition-transform duration-150 hover:scale-125"
                             />
                         ))}
                         
@@ -94,22 +95,23 @@ function submit(){
 
         </div>
 
-         <div className="w-full flex flex-col text-md ">
+         <div className="w-full flex flex-col text-md animate-[fadeInUp_0.5s_ease-out_0.5s_both]">
             <span>Review</span>
     
-           <textarea  placeholder="Drop your Review here" className="w-full h-[200px] border-[2px] rounded-[20px]"    value={review} 
+           <textarea  placeholder="Drop your Review here" className="w-full h-[200px] border-[2px] rounded-[20px]   transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"    value={review} 
               onChange={(e)=>{
               setReview(e.target.value)
+          
             }} type="text" >
             
            </textarea >
         </div>
-        <div className="w-full flex  items center  pt-[20px] gap-[20px]">
-            <button className="w-[100px] h-[40px] text-md bg-accent text-white  rounded-xl cursor-pointer hover:bg-white hover:text-accent border-[2px] border-accent transition-colors" onClick={submit}> 
+        <div className="w-full flex  items center  pt-[20px] gap-[20px] animate-[fadeInUp_0.5s_ease-out_0.5s_both] ">
+            <button className="w-[100px] h-[40px] text-md bg-accent text-white  rounded-xl cursor-pointer hover:bg-white hover:text-accent border-[2px] border-accent  transition-all duration-200  hover:scale-105 transition-all duration-200" onClick={submit}> 
                 Submit
             </button>
 
-                 <Link to={"/reviews"} className="w-[100px] h-[40px] text-md bg-white bg-white text-accent  rounded-xl border-[2px] border-accent  flex justify-center items-center hover:bg-accent hover:text-white transition-colors " > 
+                 <Link to={"/reviews"} className="w-[100px] h-[40px] text-md bg-white bg-white text-accent  rounded-xl border-[2px] border-accent  flex justify-center items-center hover:bg-accent hover:text-white hover:scale-105 transition-all duration-200" > 
                Cancel
             </Link>
         

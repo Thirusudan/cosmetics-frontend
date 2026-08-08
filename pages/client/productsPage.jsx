@@ -30,26 +30,32 @@ export default function ProductsPage(){
 
     return(
     <div className="w-full h-full">
-        <div className="w-full h-[100px] flex justify-center items-center">
+        <div className="w-full h-[100px] flex justify-center items-center animate-[fadeInUp_0.6s_ease-out_both]">
         <input type="text"
-         placeholder="Search products..."
+         placeholder="Search products..." 
          value={query}
          onChange={(e)=>{
          setQuery(e.target.value)
          SetLoading(true)
          }}
-         className="w-[400px] h-[40px] border border-gray-300 rounded-lg"/>
+         className="w-[400px] h-[40px] border border-gray-300 rounded-lg transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"/>
         </div>
       {
         loading? ( <Loader/> 
 
         ) : (
-        <div className="w-full flex flex-wrap gap-[40px] justify-center items-center p-[20px] ">
+        <div className="w-full flex flex-wrap gap-[40px] justify-center items-center p-[20px]">
             { 
                 products.map(
-                    (product)=>{
+                    (product, index)=>{
                         return(
-                            <ProductCard key={product.productId} product={product}/>
+                            <div 
+                              key={product.productId}
+                              className="animate-[fadeInUp_0.5s_ease-out_both]"
+                              style={{ animationDelay: `${index * 0.08}s` }}
+                            >
+                              <ProductCard product={product}/>
+                            </div>
                         )
                 })
             }

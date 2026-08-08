@@ -11,14 +11,16 @@ export default function CartPage(){
         <div className="w-[100vw] max-w-[100vw] h-screen flex flex-col px-[10px] items-center ">
         {
             cart.map(
-                (item)=>{
+                (item,index)=>{
                 return(
-                    <div key={item.productId} className="w-full md:w-[800px] md:h-[100px]  h-[200px] m-[10px] shadow-2xl flex flex-row items-center relative ">
+                    <div key={item.productId} className="w-full md:w-[800px] md:h-[100px]  h-[200px] m-[10px] shadow-2xl flex flex-row items-center relative animate-[fadeInUp_0.4s_ease-out_both] "
+                    style={{ animationDelay: `${index * 0.08}s` }}>
+                        
 
                  <div className="md:w-[100px] w-[200px] flex flex-col justify-center items-center text-2xl md:text-md">
 
                         
-                  <img src={item.image} className="w-[100px] h-[100px] object-cover"/>
+                  <img src={item.image} className="w-[100px] h-[100px] object-cover  transition-transform duration-300 hover:scale-110"/>
                     {/*small device*/}
                    <div className=" h-full flex-col pl-[10px] md:hidden flex  ">
                         <span className="font-bold text-center md:text-left ">{item.name}</span>
@@ -36,14 +38,14 @@ export default function CartPage(){
                     </div>
 
                     <div className="w-[190px] text-4xl md:text-md h-full flex flex-row justify-center items-center ">
-                    <button className="flex justify-center items- center w-[30px] rounded-lg bg-accent text-white cursor-pointer hover:bg-blue-400"onClick={()=>{
+                    <button className="flex justify-center items- center w-[30px] rounded-lg bg-accent text-white cursor-pointer hover:bg-blue-400 hover:scale-110 transition-all duration-150 active:scale-90"onClick={()=>{
                         addToCart(item,-1)
                         setCart(getCart())
                     }}>-</button>
 
                     <span className="mx-[10px]">{item.quantity}</span>
 
-                    <button className="flex justify-center items- center w-[30px] rounded-lg bg-accent text-white  cursor-pointer hover:bg-blue-400"onClick={()=>{
+                    <button className="flex justify-center items- center w-[30px] rounded-lg bg-accent text-white  cursor-pointer hover:bg-blue-400 hover:scale-110 transition-all duration-150 active:scale-90"onClick={()=>{
                         addToCart(item,1)
                         setCart(getCart())
                     }}>+</button>
@@ -54,7 +56,7 @@ export default function CartPage(){
                         {/*total quantity *price*/}
                     <span className="font-semibold">{(item.quantity * item.price).toLocaleString("en-us",{minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                     </div>
-                    <button className="w-[30px] h-[30px] absolute top-[0px] right-[0px] md:right-[-40px] cursor-pointer bg-red-700 shadow rounded-full flex justify-center items-center text-white border-[2px] border-red-700 hover:bg-white hover:text-red-700 absolute right-[-40px] md:top-[30px]"onClick={()=>{
+                    <button className="w-[30px] h-[30px] absolute top-[0px] right-[0px] md:right-[-40px] cursor-pointer bg-red-700 shadow rounded-full flex justify-center items-center text-white border-[2px] border-red-700 hover:bg-white hover:text-red-700 absolute right-[-40px] md:top-[30px]  hover:scale-110 transition-all duration-150 active:scale-90"onClick={()=>{
                         addToCart(item, -item.quantity)
                         setCart(getCart())
                     }}>
@@ -64,11 +66,11 @@ export default function CartPage(){
                 )
             })
         }
-         <div className="md:w-[800px] w-full h-[100px] m-[10px] p-[10px] shadow-2xl flex flex-row items-center justify-end relative ">
+         <div className="md:w-[800px] w-full h-[100px] m-[10px] p-[10px] shadow-2xl flex flex-row items-center justify-end relative animate-[fadeInUp_0.5s_ease-out_both]">
             <span className="font-bold text-2xl ">
                 Total: {getTotal().toLocaleString("en-us",{minimumFractionDigits:2,maximumFractionDigits:2})}
             </span>
-            <button className="absolute left-[10px] w-[200px] text-2xl md:text-md  md:w-[150px] h-[50px] cursor-pointer rounded-lg shadow-2xl bg-accent border-[2px] border-accent text-white hover:bg-white hover:text-accent" onClick={()=>{
+            <button className="absolute left-[10px] w-[200px] text-2xl md:text-md  md:w-[150px] h-[50px] cursor-pointer rounded-lg shadow-2xl bg-accent border-[2px] border-accent text-white hover:bg-white hover:text-accent  hover:scale-105 transition-all duration-200 " onClick={()=>{
                 navigate("/checkout",{state:{items:cart}})
             }}>
                 checkout

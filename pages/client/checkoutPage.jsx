@@ -107,12 +107,12 @@ try{
         return (
           <div
             key={item.productId}
-            className="w-full md:w-[800px] h-[200px] md:h-[100px] m-[10px] shadow-2xl flex flex-row items-center relative"
+            className="w-full md:w-[800px] h-[200px] md:h-[100px] m-[10px] shadow-2xl flex flex-row items-center relative animate-[fadeInUp_0.4s_ease-out_both]"
           >
             <div className="md:w-[100px] w-[200px] justify-center items-center flex flex-col text-2xl md:text-md">
               <img
                 src={item.image}
-                className="w-[100px] h-[100px] object-cover"
+                className="w-[100px] h-[100px] object-cover transition-transform duration-300 hover:scale-110"
               />
               <div className="h-full flex-col justify-center pl-[10px] md:hidden flex">
                 <span className="font-bold text-center md:text-left">
@@ -142,7 +142,7 @@ try{
 
             <div className="w-[190px] h-full text-4xl md:text-md flex flex-row justify-center items-center">
               <button
-                className="flex justify-center items-center w-[30px] rounded-lg bg-accent text-white cursor-pointer hover:bg-blue-400"
+                className="flex justify-center items-center w-[30px] rounded-lg bg-accent text-white cursor-pointer hover:bg-blue-400   hover:scale-110 transition-all duration-150 active:scale-90"
                 onClick={() => {
                   const newCart = [...cart];
                   newCart[index].quantity -= 1;
@@ -156,7 +156,7 @@ try{
               </button>
               <span className="mx-[10px]">{item.quantity}</span>
               <button
-                className="flex justify-center items-center w-[30px] rounded-lg bg-accent text-white cursor-pointer hover:bg-blue-400"
+                className="flex justify-center items-center w-[30px] rounded-lg bg-accent text-white cursor-pointer hover:bg-blue-400   hover:scale-110 transition-all duration-150 active:scale-90"
                 onClick={() => {
                   const newCart = [...cart];
                   newCart[index].quantity += 1;
@@ -178,7 +178,7 @@ try{
             </div>
 
             <button
-              className="w-[30px] h-[30px] absolute top-[0px] right-[0px] md:top-[35px] md:right-[-40px] cursor-pointer bg-red-700 shadow rounded-full flex justify-center items-center text-white border-[2px] border-red-700 hover:bg-white hover:text-red-700"
+              className="w-[30px] h-[30px] absolute top-[0px] right-[0px] md:top-[35px] md:right-[-40px] cursor-pointer bg-red-700 shadow rounded-full flex justify-center items-center text-white border-[2px] border-red-700 hover:bg-white hover:text-red-700 hover:scale-110 transition-all duration-150 active:scale-90" 
               onClick={() => {
                 const newCart = [...cart];
                 newCart.splice(index, 1);
@@ -201,7 +201,7 @@ try{
         </span>
         <button
           onClick={placeOrder}
-          className="absolute left-[10px] w-[200px] text-2xl md:text-md md:w-[150px] h-[50px] cursor-pointer rounded-lg shadow-2xl bg-accent border-[2px] border-accent text-white hover:bg-white hover:text-accent"
+          className="absolute left-[10px] w-[200px] text-2xl md:text-md md:w-[150px] h-[50px] cursor-pointer rounded-lg shadow-2xl bg-accent border-[2px] border-accent text-white hover:bg-white hover:text-accent   hover:scale-105 transition-all duration-200"
         >
           Place Order
         </button>
@@ -209,21 +209,21 @@ try{
 
       <div className="md:w-[800px] w-full m-[10px] p-[10px] shadow-2xl flex flex-col md:flex-row items-center justify-center gap-2">
         <input
-          className="w-full md:w-[200px] h-[40px] border border-gray-300 rounded-lg p-[10px]"
+          className="w-full md:w-[200px] h-[40px] border border-gray-300 rounded-lg p-[10px]   transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"
           type="text"
           placeholder="Enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          className="w-full md:w-[200px] h-[40px] border border-gray-300 rounded-lg p-[10px]"
+          className="w-full md:w-[200px] h-[40px] border border-gray-300 rounded-lg p-[10px]  transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"
           type="text"
           placeholder="Enter your address"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
         />
         <input
-          className="w-full md:w-[200px] h-[40px] border border-gray-300 rounded-lg p-[10px]"
+          className="w-full md:w-[200px] h-[40px] border border-gray-300 rounded-lg p-[10px]   transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"
           type="text"
           placeholder="Enter your phone number"
           value={phone}

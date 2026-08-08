@@ -23,22 +23,28 @@ export default function ReviewsPage(){
 
      return(
 
-        <div className="w-full realtive min-h-screen bg-primary">
+        <div className="w-full min-h-screen bg-primary">
             {
               isloading ? (<Loader/>
               ):(  
                <div>
-                <div>
-                <h1 className="text-4xl text-center pt-[20px] font-bold">What our clients say</h1>
-                <Link to={"/addreview"} className="absolute right-[100px] w-[145px] h-[39px] bg-accent text-white text-lg text-center justify-center items-center  ml-[20px] top-[130px] rounded-xl flex justify-center items-center hover:bg-white hover:text-accent border-[2px] border-bg-accent ">Drop a Review</Link>
+                <div className="flex justify-between items-center px-[100px] pt-[20px] animate-[fadeInUp_0.6s_ease-out_both]">
+                  <h1 className="text-4xl font-bold">What our clients say</h1>
+                  <Link to={"/addreview"} className="w-[145px] h-[39px] bg-accent text-white text-lg rounded-xl flex justify-center items-center hover:bg-white hover:text-accent border-[2px] border-bg-accent hover:scale-105 transition-all duration-200">Drop a Review</Link>
                 </div>
+             
             <div className="w-full flex-wrap grid grid-cols-2 gap-[40px] p-[40px] px-[40px] ">
                 {
-                    reviews.map(
-                        (review)=>{
+                   reviews.map(
+                        (review, index)=>{
                         return(
-                            
-                            <ReviewCard key={review._id} review={review}/>
+                            <div
+                              key={review._id}
+                              className="animate-[fadeInUp_0.5s_ease-out_both]"
+                              style={{ animationDelay: `${index * 0.1}s` }}
+                            >
+                              <ReviewCard review={review}/>
+                            </div>
                         )
                     })
                 }

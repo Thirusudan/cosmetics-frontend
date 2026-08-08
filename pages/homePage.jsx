@@ -14,7 +14,6 @@ export default function HomePage() {
     <div className="w-full min-h-screen ">
 
 
-            <PromoAlert />
      
 
 
@@ -25,18 +24,18 @@ export default function HomePage() {
 
 
         {/* LEFT - all text content together */}
-        <div className="flex flex-col text-black max-w-[600px] ml-[30px] mt-[20]">
+        <div className="flex flex-col text-black max-w-[600px] ml-[30px] mt-[-15px]  animate-[fadeInLeft_1s_ease-out_both]">
 
-          <span className="text-3xl font-bold text-secondary">Good Skin</span>
-          <span className="text-3xl font-bold text-secondary">Good Glow</span>
-          <span className="text-3xl font-bold text-yellow-500">Guaranteed</span>
+          <span className="text-2xl font-bold text-secondary">Good Skin</span>
+          <span className="text-2xl font-bold text-secondary">Good Glow</span>
+          <span className="text-2xl font-bold text-yellow-500">Guaranteed</span>
 
-          <p className="text-2xl mt-[20px]">
+          <p className="text-xl mt-[20px]">
             Discover a wide range of natural, cruelty-free skincare and fragrance
             products delivered straight to your door.
           </p>
 
-          <div className="flex flex-col text-md gap-[10px] mt-[20px]">
+          <div className="flex flex-col text-md gap-[10px] mt-[20px] ">
             <span>✔ 100% Natural & Organic Ingredients</span>
             <span>✔ Cruelty-Free & Vegan Formulas</span>
             <span>✔ Dermatologically Tested</span>
@@ -44,7 +43,7 @@ export default function HomePage() {
             <span>✔ Sustainable & Eco-Friendly Packaging</span>
 
           
-          <div className="flex gap-[40px] mt-[10px]">
+          <div className="flex gap-[40px] mt-[10px]  animate-[fadeInUp_0.6s_ease-out_0.8s_both]">
     <div className="flex flex-col">
         <span className="text-xl font-bold text-accent">1000+</span>
         <span className="text-sm">Happy Customers</span>
@@ -61,30 +60,16 @@ export default function HomePage() {
 
 
           </div>
-          <Link to={"/products"} className=" text-white bg-accent w-[130px] h-[40px] mt-[20px] rounded-[10px] font-bold text-xl flex justify-center items-center  hover:bg-white hover:text-accent border-[2px] border-accent">Shop Now</Link>
+          <Link to={"/products"} className=" text-white bg-accent w-[130px] h-[40px] mt-[20px] rounded-[10px] font-bold text-xl flex justify-center items-center  hover:bg-white hover:text-accent border-[2px] border-accent  animate-[fadeInUp_0.6s_ease-out_0.9s_both]  hover:scale-105 transition-all duration-200">Shop Now</Link>
 
         </div>
 
         {/* RIGHT - image */}
-        <div className="w-[500px] h-[470px] bg-[url('/register1.jpg')] bg-cover bg-center rounded-full ">
+        <div className="w-[500px] h-[470px] bg-[url('/register1.jpg')] bg-cover bg-center rounded-full   animate-[fadeInRight_1s_ease-out_0.2s_both] transition-transform duration-500 hover:scale-105">
         </div>
 
       </div>
 
-
-      
-        <div className="max-w-[1400px] mx-auto flex gap-[30px] py-[30px]">
-    <div className="w-1/2 h-[250px] bg-[url('/home.jpg')] bg-cover bg-center rounded-2xl flex flex-col justify-center p-[40px]">
-        <span className="text-sm font-bold text-yellow-500">SUMMER SALE</span>
-        <h3 className="text-3xl font-bold text-white">Up to 50% Off</h3>
-        <Link to={"/products"} className="mt-[15px] bg-white text-black w-[130px] h-[40px] rounded-[10px] font-bold flex justify-center items-center hover:bg-accent hover:text-white transition">Shop Now</Link>
-    </div>
-    <div className="w-1/2 h-[250px] bg-[url('/home.jpg')] bg-cover bg-center rounded-2xl flex flex-col justify-center p-[40px]">
-        <span className="text-sm font-bold text-yellow-500">NEW ARRIVALS</span>
-        <h3 className="text-3xl font-bold text-white">Discover the Latest</h3>
-        <Link to={"/products"} className="mt-[15px] bg-white text-black w-[130px] h-[40px] rounded-[10px] font-bold flex justify-center items-center hover:bg-accent hover:text-white transition">Explore</Link>
-    </div>
-</div>
 
 
 

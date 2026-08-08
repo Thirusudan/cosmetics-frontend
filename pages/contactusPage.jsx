@@ -35,17 +35,17 @@ export default function ContactusPage(){
     return(
         <div className="w-full h-full ">
 
-            <div className="text-center ">
+            <div className="text-center animate-[fadeInUp_0.5s_ease-out_both]">
             <p className="text-xl pt-[20px]">We're here to help and answer any question you might have.We look forward to hearing from you</p>
         </div>
         <div className="flex flex-row gap-[200px]">
-            <div className="w-[600px] h-[700px] ml-[30px] mt-[2px] flex flex-col p-[10px]">
+            <div className="w-[600px] h-[700px] ml-[30px] mt-[2px] flex flex-col p-[10px] animate-[fadeInLeft_1s_ease-out_0.2s_both] ">
              
              <div className="w-[500px] flex flex-col mt-[9px]">
              <label className="text-md">Full Name</label>
              <input type="text" 
               placeholder="Enter Your Name here"  
-              className="w-[300px] h-[35px] border-[2px] border-accent rounded-xl" 
+              className="w-[300px] h-[35px] border-[2px] border-accent rounded-xl  transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none" 
               value={name}
               onChange={(
                 (e)=>{
@@ -58,7 +58,7 @@ export default function ContactusPage(){
              <label className="text-md">Email Address</label>
              <input type="text" 
               placeholder="Enter Your Email here"  
-              className="w-[300px] h-[35px] border-[2px] border-accent rounded-xl"
+              className="w-[300px] h-[35px] border-[2px] border-accent rounded-xl  transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"
               value={email}
               onChange={(
                 (e)=>{
@@ -71,7 +71,7 @@ export default function ContactusPage(){
              <label className="text-md">Phone Number</label>
              <input type="text" 
               placeholder="Enter Your Phone Number here"
-              className="w-[300px]  h-[35px] border-[2px]  border-accent rounded-xl"
+              className="w-[300px]  h-[35px] border-[2px]  border-accent rounded-xl  transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"
               value={phoneNumber} 
               onChange={(
                 (e)=>{
@@ -83,7 +83,7 @@ export default function ContactusPage(){
              <label className="text-md">Message</label>
              <textarea type="text" 
               placeholder="Enter Your message here"  
-              className="w-[570px] h-[150px] border-[2px] border-black rounded-xl border-accent"
+              className="w-[570px] h-[150px] border-[2px] border-black rounded-xl border-accent  transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"
                 value={message}
               onChange={(e)=>{
                 setMessage(e.target.value)
@@ -91,14 +91,14 @@ export default function ContactusPage(){
              </div>
 
              <div className="w-[500px] mt-[20px] ml-[10px] ">
-                <button className="w-[130px] h-[40px] text-md bg-accent text-[#F2f2f2] font-bold rounded-xl cursor-pointer  hover:bg-white hover:text-accent border-[2px] border-accent" onClick={sendmessage}>Send message</button>
+                <button className="w-[130px] h-[40px] text-md bg-accent text-[#F2f2f2] font-bold rounded-xl cursor-pointer  hover:bg-white hover:text-accent border-[2px] border-accent  hover:scale-105 transition-all duration-200" onClick={sendmessage}>Send message</button>
              </div>
 
         
             </div>
             
   
-         <div className="w-[350px] h-[450px] mt-[30px] ml-[50px] bg-accent text-white rounded-2xl p-[30px] flex flex-col justify-between">
+         <div className="w-[350px] h-[450px] mt-[30px] ml-[50px] bg-accent text-white rounded-2xl p-[30px] flex flex-col justify-between animate-[fadeInRight_1s_ease-out_0.2s_both]">
     
     <div>
         <h2 className="text-2xl font-bold">Get in Touch</h2>
@@ -121,7 +121,7 @@ export default function ContactusPage(){
 
 
         <a href="mailto:tsudhan110@gmail.com">
-        <div className="flex items-start gap-[12px]">
+        <div className="flex items-start gap-[12px] transition-transform duration-200 hover:translate-x-1">
             <span className="text-lg">✉️</span>
             <div>
                 <p className="font-semibold">Email</p>
@@ -131,7 +131,7 @@ export default function ContactusPage(){
         </a>
 
          <a href="tel:+944746691">
-        <div className="flex items-start gap-[12px]">
+        <div className="flex items-start gap-[12px]  transition-transform duration-200 hover:translate-x-1">
             <span className="text-lg">📞</span>
             <div>
                 <p className="font-semibold">Phone</p>

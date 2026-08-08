@@ -22,7 +22,7 @@ function App() {
     <BrowserRouter>
     <GoogleOAuthProvider clientId={clientId}>
        <div className='w-full h-screen flex justify-center items-center bg-primary text-secondary'>
-         <Toaster position="top-wright" /> 
+         <Toaster position="top-right" /> 
      
      <Routes path="/">  
       <Route path="/login" element={<LoginPage/>}/>

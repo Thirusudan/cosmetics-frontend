@@ -6,3 +6,54 @@
   --color-accent : #1A4731 /* buttons/highlights - use ~10% of the page (This is Dark blue color and using 10% but it is only color in customer mind you can see in daraz, daraz is using orange color 10% if someone ask what color is daraz the answer is orange )*/ 
 }
 
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+     opacity: 0;
+    transform: translateY(30px);   /*animated speed*/
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+/*fadeInLeft	Element starts on the left (hidden), slides right into place	Name says "Left" → it started at the left
+fadeInRight	Element starts on the right (hidden), slides left into place	Name says "Right" → it started at the right
+fadeInUp	Element starts below, slides up into place	Name says "Up" → it moves upward to arrive
+fadeInDown	Element starts above, slides down into place	Name says "Down" → it moves downward to arrive*/

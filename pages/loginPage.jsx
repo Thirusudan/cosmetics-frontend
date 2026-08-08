@@ -56,9 +56,9 @@ export default function LoginPage(){
     }
 
     return (
-        <div className="w-full h-screen bg-[url('/loginbg.jpg')] bg-cover bg-center flex justify-center items-center">
+        <div className="w-[900px] h-[600px] bg-[url('/home.jpg')] bg-cover bg-center flex justify-center items-center">
             
-         <div className="h-[500px] w-[500px] backdrop-blur-sm shadow-xl rounded-[30px] relative text-white flex flex-col items-center justify-center gap-[20px]">
+         <div className="h-[500px] w-[500px] bg-white/55 backdrop-blur-[3px]  shadow-xl rounded-[30px] relative text-black flex flex-col items-center justify-center gap-[20px]">
         <h1 className="absolute top-[20px] text-2xl font-bold text-center my-5">Login</h1>
         <div className="w-[350px] flex flex-col">
             <span className="text-lg">Email</span>
@@ -66,7 +66,7 @@ export default function LoginPage(){
              setEmail(e.target.value)
           }}
           
-          type="text" className="w-[350px] h-[40px] border border-white rounded-xl"/>
+          type="text" className="w-[350px] h-[40px] px-4 border-2 rounded-full focus:border-accent outline-none bg-transparent transition-colors duration-300"/>
         </div>
 
         <div className="w-[350px] flex flex-col">
@@ -76,14 +76,14 @@ export default function LoginPage(){
             console.log("password is changed")
           }} 
           
-          type="password" className="w-[350px] h-[40px] border border-white rounded-xl"/>
+          type="password" className="w-[350px] h-[40px] px-4 border-2 rounded-full focus:border-accent outline-none bg-transparent transition-colors duration-300"/>
         </div>
-       <button onClick={login} className="w-[350px] h-[40px] bg-blue-500 rounded-xl text-white text-lg mt-5 hover:bg-blue-600 transition-all duration-300 cursor-pointer ">Login</button>
+       <button onClick={login} className="w-[350px] h-[40px] bg-accent text-white text-lg font-semibold tracking-wide rounded-full shadow-lg mt-5 hover:bg-white hover:text-accent hover:shadow-md border-2 border-accent transition-all duration-300 cursor-pointer ">Login</button>
 
-{/*7*/}     <button onClick={googleLogin} className="w-[350px] h-[40px] bg-blue-500 rounded-xl text-white text-lg mt-5 hover:bg-blue-600 transition-all duration-300">Google Login</button>
+{/*7*/}     <button onClick={googleLogin} className="w-[350px] h-[40px]  bg-white text-accent text-md font-semibold tracking-wide rounded-full shadow-lg mt-3 hover:bg-accent hover:text-white hover:shadow-md border-2 border-accent transition-all duration-300 cursor-pointer">Google Login</button>
 
-       <p>Don't have an account? <Link to="/register" className="text-blue ">Sign up</Link> from here</p>
-       <p>Forget Password? <Link to="/forget" className="text-blue ">reset password</Link> from here</p>
+       <p>Don't have an account? <Link to="/register" className="text-accent font-semibold hover:underline hover:text-[#142c22] transition-colors duration-200">Sign up</Link> from here</p>
+       <p>Forget Password? <Link to="/forget" className="text-accent font-semibold hover:underline hover:text-[#142c22]  transition-colors duration-200 ">Reset password</Link> from here</p>
        
          </div>
         </div>

@@ -40,7 +40,7 @@ const navigate = useNavigate()
 
     return(
         <div className="w-full h-full flex justify-center items-center ">
-         <div className="w-[900px] h-[700px] bg-[url('/home.jpg')] bg-cover bg-center flex justify-center items-center rounded-[35px] ">
+         <div className="w-[900px] h-[600px] bg-[url('/home.jpg')] bg-cover bg-center flex justify-center items-center rounded-[35px] ">
          <div>
         <div className="w-[500px] h-[500px] bg-white/55 backdrop-blur-[3px] shadow-xl rounded-[30px] relative gap-[10px] text-secondary flex flex-col justify-center items-center">
             <h1 className="text-2xl top-[10px] text-center w-full h-[50px] font-bold text-black ">Register Page</h1>
@@ -50,7 +50,7 @@ const navigate = useNavigate()
                     setFirstName(e.target.value)
                 }} type="text"
                 placeholder="Enter your first name "
-                className="w-[350px] h-[37px] border text-secondary rounded-xl text-secondary" />
+                className="w-[350px] h-[37px] border px-4 border-2 rounded-full focus:border-accent outline-none bg-transparent transition-colors duration-300" />
             </div>
 
             <div className="w-[350px] flex flex-col ">
@@ -59,7 +59,7 @@ const navigate = useNavigate()
                    setLastName(e.target.value)
                 }} type="text"
                 placeholder="Enter your last name "
-                className="w-[350px] h-[37px] border text-secondary rounded-xl text-secondary" />
+                className="w-[350px] h-[37px] border px-4 border-2 rounded-full focus:border-accent outline-none bg-transparent transition-colors duration-300 " />
             </div>
 
             <div className="w-[350px] flex flex-col ">
@@ -68,7 +68,7 @@ const navigate = useNavigate()
                   setEmail(e.target.value)
                 }} type="email"
                 placeholder="Enter your your Email "
-                className="w-[350px] h-[37px] border text-secondary rounded-xl text-secondary" />
+                className="w-[350px] h-[37px] border px-4 border-2 rounded-full focus:border-accent outline-none bg-transparent transition-colors duration-300" />
             </div>
 
             <div className="w-[350px] flex flex-col ">
@@ -77,10 +77,10 @@ const navigate = useNavigate()
                   setPassword(e.target.value)
                 }} type="password"
                 placeholder="Enter your password "
-                className="w-[350px] h-[37px] border text-secondary rounded-xl text-secondary" />
+                className="w-[350px] h-[37px] border px-4 border-2 rounded-full focus:border-accent outline-none bg-transparent transition-colors duration-300" />
             </div>
 
-            <button className="w-[200px] h-[37px] bg-accent  rounded-xl text-white mt-[10px] hover:bg-white hover:text-accent border-[2px] border-accent cursor-pointer text-xl "onClick={register}>
+            <button className="w-[350px] h-[37px] bg-accent text-white text-lg font-semibold tracking-wide rounded-full shadow-lg mt-5 hover:bg-white hover:text-accent hover:shadow-md border-2 border-accent transition-all duration-300 cursor-pointer text-xl "onClick={register}>
              Register
             </button>
 
