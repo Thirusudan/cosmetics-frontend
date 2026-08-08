@@ -28,12 +28,12 @@ export default function ReviewsPage(){
               isloading ? (<Loader/>
               ):(  
                <div>
-                <div className="flex justify-between items-center px-[100px] pt-[20px] animate-[fadeInUp_0.6s_ease-out_both]">
-                  <h1 className="text-4xl font-bold">What our clients say</h1>
+                <div className="flex flex-col md:flex-row justify-between items-center gap-[15px] md:gap-0 px-[20px] md:px-[100px] pt-[20px] text-center md:text-left animate-[fadeInUp_0.6s_ease-out_both]"> {/* RESPONSIVE: flex-col md:flex-row, gap-[15px] md:gap-0, px-[20px] md:px-[100px], text-center md:text-left */}
+                  <h1 className="text-2xl md:text-4xl font-bold">What our clients say</h1> {/* RESPONSIVE: text-2xl md:text-4xl */}
                   <Link to={"/addreview"} className="w-[145px] h-[39px] bg-accent text-white text-lg rounded-xl flex justify-center items-center hover:bg-white hover:text-accent border-[2px] border-bg-accent hover:scale-105 transition-all duration-200">Drop a Review</Link>
                 </div>
              
-            <div className="w-full flex-wrap grid grid-cols-2 gap-[40px] p-[40px] px-[40px] ">
+            <div className="w-full flex-wrap grid grid-cols-1 md:grid-cols-2 gap-[20px] md:gap-[40px] p-[20px] md:p-[40px] px-[20px] md:px-[40px] "> {/* RESPONSIVE: grid-cols-1 md:grid-cols-2, gap-[20px] md:gap-[40px], p-[20px] md:p-[40px], px-[20px] md:px-[40px] */}
                 {
                    reviews.map(
                         (review, index)=>{

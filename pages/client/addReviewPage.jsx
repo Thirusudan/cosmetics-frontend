@@ -98,7 +98,7 @@ function submit(){
          <div className="w-full flex flex-col text-md animate-[fadeInUp_0.5s_ease-out_0.5s_both]">
             <span>Review</span>
     
-           <textarea  placeholder="Drop your Review here" className="w-full h-[200px] border-[2px] rounded-[20px]   transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"    value={review} 
+           <textarea  placeholder="Drop your Review here" className="w-full h-[200px] border-[2px] rounded-[20px]   transition-all duration-200 focus:shadow-md focus:outline-none focus:border-accent"    value={review} 
               onChange={(e)=>{
               setReview(e.target.value)
           
