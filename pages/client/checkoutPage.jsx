@@ -107,7 +107,7 @@ try{
         return (
           <div
             key={item.productId}
-            className="w-full md:w-[800px] h-[200px] md:h-[100px] m-[10px] shadow-2xl flex flex-row items-center relative animate-[fadeInUp_0.4s_ease-out_both]"
+            className="w-full md:w-[800px] h-[200px] md:h-[100px] m-[10px] shadow-2xl flex flex-row items-center relative animate-[fadeInUp_0.4s_ease-out_both] "
           >
             <div className="md:w-[100px] w-[200px] justify-center items-center flex flex-col text-2xl md:text-md">
               <img
@@ -178,7 +178,7 @@ try{
             </div>
 
             <button
-              className="w-[30px] h-[30px] absolute top-[0px] right-[0px] md:top-[35px] md:right-[-40px] cursor-pointer bg-red-700 shadow rounded-full flex justify-center items-center text-white border-[2px] border-red-700 hover:bg-white hover:text-red-700 hover:scale-110 transition-all duration-150 active:scale-90" 
+              className="w-[30px]  h-[30px] absolute top-[0px] right-[0px] md:top-[35px] md:right-[-40px] cursor-pointer bg-red-700 shadow rounded-full flex justify-center items-center text-white border-[2px] border-red-700 hover:bg-white hover:text-red-700 hover:scale-110 transition-all duration-150 active:scale-90" 
               onClick={() => {
                 const newCart = [...cart];
                 newCart.splice(index, 1);
@@ -191,7 +191,7 @@ try{
         );
       })}
 
-      <div className="md:w-[800px] w-full h-[100px] m-[10px] p-[10px] shadow-2xl flex flex-row items-center justify-end relative">
+      <div className="md:w-[800px] w-full h-[100px] m-[10px] p-[10px] shadow-2xl flex flex-row items-center justify-end relative animate-[fadeInUp_0.5s_ease-out_both]">
         <span className="font-bold text-2xl">
           Total:{" "}
           {getTotal().toLocaleString("en-US", {
@@ -207,7 +207,7 @@ try{
         </button>
       </div>
 
-      <div className="md:w-[800px] w-full m-[10px] p-[10px] shadow-2xl flex flex-col md:flex-row items-center justify-center gap-2">
+      <div className="md:w-[800px] w-full m-[10px] p-[10px] shadow-2xl flex flex-col md:flex-row items-center justify-center gap-2 animate-[fadeInUp_0.6s_ease-out_both]">
         <input
           className="w-full md:w-[200px] h-[40px] border border-gray-300 rounded-lg p-[10px]   transition-all duration-200 focus:scale-105 focus:shadow-md focus:outline-none"
           type="text"

@@ -56,34 +56,34 @@ export default function LoginPage(){
     }
 
     return (
-        <div className="w-[900px] h-[600px] bg-[url('/home.jpg')] bg-cover bg-center flex justify-center items-center">
+        <div className="w-[900px] h-[600px] bg-[url('/home.jpg')] bg-cover bg-center flex justify-center items-center animate-[fadeInUp_0.7s_ease-out_both]">
             
          <div className="h-[500px] w-[500px] bg-white/55 backdrop-blur-[3px]  shadow-xl rounded-[30px] relative text-black flex flex-col items-center justify-center gap-[20px]">
-        <h1 className="absolute top-[20px] text-2xl font-bold text-center my-5">Login</h1>
-        <div className="w-[350px] flex flex-col">
+        <h1 className="absolute top-[20px] text-2xl font-bold text-center my-5  animate-[fadeInUp_0.5s_ease-out_0.3s_both]">Login</h1>
+        <div className="w-[350px] flex flex-col animate-[fadeInUp_0.5s_ease-out_0.4s_both]">
             <span className="text-lg">Email</span>
           <input onChange={(e)=>{//1
              setEmail(e.target.value)
           }}
           
-          type="text" className="w-[350px] h-[40px] px-4 border-2 rounded-full focus:border-accent outline-none bg-transparent transition-colors duration-300"/>
+          type="text" className="w-[350px] h-[40px] px-4 border-2 rounded-full focus:border-accent outline-none bg-transparent hover:scale-105 transition-all duration-200"/>
         </div>
 
-        <div className="w-[350px] flex flex-col">
+        <div className="w-[350px] flex flex-col  animate-[fadeInUp_0.5s_ease-out_0.5s_both]">
             <span className="text-lg">Password</span>
           <input onChange={(e)=>{  //2
             setPassword(e.target.value)
             console.log("password is changed")
           }} 
           
-          type="password" className="w-[350px] h-[40px] px-4 border-2 rounded-full focus:border-accent outline-none bg-transparent transition-colors duration-300"/>
+          type="password" className="w-[350px] h-[40px] px-4 border-2 rounded-full focus:border-accent outline-none bg-transparent hover:scale-105 transition-all duration-200"/>
         </div>
-       <button onClick={login} className="w-[350px] h-[40px] bg-accent text-white text-lg font-semibold tracking-wide rounded-full shadow-lg mt-5 hover:bg-white hover:text-accent hover:shadow-md border-2 border-accent transition-all duration-300 cursor-pointer ">Login</button>
+       <button onClick={login} className="w-[350px] h-[40px] bg-accent text-white text-lg font-semibold tracking-wide rounded-full shadow-lg mt-5 hover:bg-white hover:text-accent hover:shadow-md border-2 border-accent transition-all duration-300 cursor-pointer   hover:scale-105 border-2 transition-all duration-300  animate-[fadeInUp_0.5s_ease-out_0.6s_both]">Login</button>
 
-{/*7*/}     <button onClick={googleLogin} className="w-[350px] h-[40px]  bg-white text-accent text-md font-semibold tracking-wide rounded-full shadow-lg mt-3 hover:bg-accent hover:text-white hover:shadow-md border-2 border-accent transition-all duration-300 cursor-pointer">Google Login</button>
+{/*7*/}     <button onClick={googleLogin} className="w-[350px] h-[40px]  bg-white text-accent text-md font-semibold tracking-wide rounded-full shadow-lg mt-3 hover:bg-accent hover:text-white hover:shadow-md border-2 border-accent transition-all duration-300 cursor-pointer   hover:scale-105 border-2 transition-all duration-300   animate-[fadeInUp_0.5s_ease-out_0.7s_both]">Google Login</button>
 
-       <p>Don't have an account? <Link to="/register" className="text-accent font-semibold hover:underline hover:text-[#142c22] transition-colors duration-200">Sign up</Link> from here</p>
-       <p>Forget Password? <Link to="/forget" className="text-accent font-semibold hover:underline hover:text-[#142c22]  transition-colors duration-200 ">Reset password</Link> from here</p>
+       <p className="animate-[fadeInUp_0.5s_ease-out_0.8s_both]">Don't have an account? <Link to="/register" className="text-accent font-semibold hover:underline hover:text-[#142c22] transition-colors duration-200  ">Sign up</Link> from here</p>
+       <p className="animate-[fadeInUp_0.5s_ease-out_0.9s_both]">Forget Password? <Link to="/forget" className="text-accent font-semibold hover:underline hover:text-[#142c22]  transition-colors duration-200 ">Reset password</Link> from here</p>
        
          </div>
         </div>
