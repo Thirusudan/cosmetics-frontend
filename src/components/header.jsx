@@ -7,6 +7,8 @@ import { Link,useNavigate } from "react-router-dom";
 export default function Header(){
     const navigate = useNavigate()
     const [isOpen,setIsOpen] = useState(false)  //1
+    const token = localStorage.getItem("token")
+
     return(
           <header className="h-[100px] bg-accent flex justify-center items-center relative">
 {/*4*/}        {isOpen && 
@@ -63,9 +65,17 @@ export default function Header(){
            <Link to="/reviews" className="text-white text-xl ml-4 font-bold">Reviews</Link>
            <Link to="/about-us" className="text-white text-xl ml-4 font-bold">About us</Link>
            <Link to="/contact-us" className="text-white text-xl ml-4 font-bold">Contact Us</Link>
-           <Link to="/cart" className="absolute right-[80px]">
-           <BiCart className="text-white text-3xl m1-4"/>
+           <Link to="/cart" className="absolute right-[215px]">
+           <BiCart className="text-white text-3xl m1-4  hover:text-white   hover:scale-115 transition-all duration-200"/>
            </Link>
+           {
+                token!= null&& <button className="absolute right-[50px] w-[100px] p-[2px] text-white text-xl m1-4 cursor-pointer rounded-lg shadow-2xl  border-[2px] border-white text-white hover:bg-white hover:text-accent   hover:scale-105 transition-all duration-200" onClick={()=>{
+                        localStorage.removeItem("token");
+                        navigate("/login")
+                }}>
+                Logout
+                </button>
+           }
            </div>
             </header>
       )
