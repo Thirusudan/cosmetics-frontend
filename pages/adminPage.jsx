@@ -1,4 +1,4 @@
-import { Routes,Route, Link } from "react-router-dom";
+import { Routes,Route, Link, useNavigate } from "react-router-dom";
 import { FaBoxArchive } from "react-icons/fa6";
 import { GiShoppingBag } from "react-icons/gi";
 import { IoPeople } from "react-icons/io5";
@@ -9,10 +9,52 @@ import UpdateProductPage from "./admin/updateProduct";
 import OrdersPageAdmin from "./admin/ordersPageAdmin";
 import ContactPageAdmin from "./admin/contactPageAdmin";
 import ManageReviewPage from "./admin/manageReviewPage";
+import { useEffect } from "react";
+import { useState } from "react";
+import Loader from "../src/components/loader";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 export default function AdminPage(){
+    const navigate = useNavigate()
+    const [adminValidated, setAdminValidated] =  useState(false)
+    useEffect(() => {
+    const token = localStorage.getItem("token");
+    let ignore = false; // guard against the second StrictMode run
+
+    if (token == null) {
+        toast.error("You are not logged in");
+        navigate("/login");
+        return;
+    }
+
+    axios.get(import.meta.env.VITE_BACKEND_URL + "/api/users/", {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then((response) => {
+        if (ignore) return; // skip if this run is stale
+        if (response.data.role === "admin") {
+            setAdminValidated(true);
+        } else {
+            toast.error("You are not authorized", { id: "not-authorized" });
+            navigate("/login");
+        }
+    })
+    .catch(() => {
+        if (ignore) return;
+        toast.error("You are not authorized", { id: "not-authorized" });
+        navigate("/login");
+    });
+
+    return () => {
+        ignore = true; // runs on the first StrictMode cleanup, before the real mount
+    };
+}, [navigate]);
     return(
         <div className="w-full h-screen  flex">  
+       {adminValidated? <>
             <div className="w-[300px] h-full flex flex-col items-center">  
 
             <span className="text-3xl font-bold my-5">Admin Panel</span>
@@ -41,7 +83,8 @@ export default function AdminPage(){
 
            </div>
 
-
+        </>:<Loader/>
+}
         </div>
-    )
+)
 }
