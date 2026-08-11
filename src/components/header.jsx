@@ -133,7 +133,6 @@ export default function Header(){
             </header>
       )
   }
-
 /*
 1. One simple on/off switch. isOpen starts false — meaning the mobile sidebar menu is closed. This single variable decides whether the mobile drawer menu shows or not.
 
