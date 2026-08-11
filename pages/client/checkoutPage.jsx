@@ -102,24 +102,27 @@ try{
     console.log(cart)
 
     return (
-    <div className="w-[100vw] max-w-[100vw] h-screen flex flex-col px-[10px] py-[40px] items-center">
+    <div className="w-[100vw] max-w-[100vw] h-screen flex flex-col px-[10px] py-[40px] items-center overflow-y-auto"> {/* RESPONSIVE: overflow-y-auto added */}
       {cart.map((item, index) => {
         return (
           <div
             key={item.productId}
-            className="w-full md:w-[800px] h-[200px] md:h-[100px] m-[10px] shadow-2xl flex flex-row items-center relative animate-[fadeInUp_0.4s_ease-out_both] "
+            className="w-full md:w-[800px] h-auto md:h-[100px] m-[10px] shadow-2xl flex flex-col md:flex-row items-center relative animate-[fadeInUp_0.4s_ease-out_both] p-[15px] md:p-0 gap-[10px] md:gap-0"
+            /* RESPONSIVE: h-auto md:h-[100px], flex-col md:flex-row, p-[15px] md:p-0, gap-[10px] md:gap-0 */
           >
-            <div className="md:w-[100px] w-[200px] justify-center items-center flex flex-col text-2xl md:text-md">
+            <div className="w-full md:w-[100px] flex flex-row md:flex-col justify-start md:justify-center items-center gap-[15px] md:gap-0 text-2xl md:text-md">
+              {/* RESPONSIVE: w-full md:w-[100px], flex-row md:flex-col, justify-start md:justify-center, gap-[15px] md:gap-0 */}
               <img
                 src={item.image}
-                className="w-[100px] h-[100px] object-cover transition-transform duration-300 hover:scale-110"
+                className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] object-cover shrink-0 transition-transform duration-300 hover:scale-110"
+                /* RESPONSIVE: w-[80px] h-[80px] md:w-[100px] md:h-[100px], shrink-0 */
               />
-              <div className="h-full flex-col justify-center pl-[10px] md:hidden flex">
-                <span className="font-bold text-center md:text-left">
+              <div className="flex-1 flex-col justify-center pl-[10px] md:hidden flex"> {/* RESPONSIVE: flex-1 instead of h-full */}
+                <span className="font-bold text-left md:text-left">
                   {item.name}
                 </span>
                 {/*price*/}
-                <span className="font-semibold text-center md:text-left">
+                <span className="font-semibold text-left md:text-left">
                   {item.price.toLocaleString("en-US", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
@@ -140,7 +143,9 @@ try{
               </span>
             </div>
 
-            <div className="w-[190px] h-full text-4xl md:text-md flex flex-row justify-center items-center">
+            <div className="w-full md:w-[190px] h-auto md:h-full text-2xl md:text-md flex flex-row justify-between md:justify-center items-center">
+              {/* RESPONSIVE: w-full md:w-[190px], h-auto md:h-full, text-2xl (was text-4xl), justify-between md:justify-center */}
+              <div className="flex flex-row items-center"> {/* RESPONSIVE: wrapper added so qty controls group together */}
               <button
                 className="flex justify-center items-center w-[30px] rounded-lg bg-accent text-white cursor-pointer hover:bg-blue-400   hover:scale-110 transition-all duration-150 active:scale-90"
                 onClick={() => {
@@ -165,9 +170,18 @@ try{
               >
                 +
               </button>
+              </div>
+
+              <div className="text-xl md:hidden font-semibold"> {/* RESPONSIVE: mobile-only total next to qty controls */}
+                {(item.quantity * item.price).toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </div>
             </div>
 
-            <div className="w-[190px] text-3xl md:text-md h-full flex justify-end items-center pr-[10px]">
+            <div className="hidden md:flex w-[190px] text-3xl md:text-md h-full justify-end items-center pr-[10px]">
+              {/* RESPONSIVE: hidden md:flex (desktop-only, mobile version shown above next to qty) */}
                 {/*total quantity *price*/}
               <span className="font-semibold">
                 {(item.quantity * item.price).toLocaleString("en-US", {
@@ -178,7 +192,8 @@ try{
             </div>
 
             <button
-              className="w-[30px]  h-[30px] absolute top-[0px] right-[0px] md:top-[35px] md:right-[-40px] cursor-pointer bg-red-700 shadow rounded-full flex justify-center items-center text-white border-[2px] border-red-700 hover:bg-white hover:text-red-700 hover:scale-110 transition-all duration-150 active:scale-90" 
+              className="w-[30px]  h-[30px] absolute top-[10px] right-[10px] md:top-[35px] md:right-[-40px] cursor-pointer bg-red-700 shadow rounded-full flex justify-center items-center text-white border-[2px] border-red-700 hover:bg-white hover:text-red-700 hover:scale-110 transition-all duration-150 active:scale-90" 
+              /* RESPONSIVE: top-[10px] right-[10px] md:top-[35px] md:right-[-40px] */
               onClick={() => {
                 const newCart = [...cart];
                 newCart.splice(index, 1);
@@ -191,8 +206,9 @@ try{
         );
       })}
 
-      <div className="md:w-[800px] w-full h-[100px] m-[10px] p-[10px] shadow-2xl flex flex-row items-center justify-end relative animate-[fadeInUp_0.5s_ease-out_both]">
-        <span className="font-bold text-2xl">
+      <div className="md:w-[800px] w-full h-auto md:h-[100px] m-[10px] p-[15px] md:p-[10px] shadow-2xl flex flex-col md:flex-row items-center justify-center md:justify-end gap-[15px] md:gap-0 relative animate-[fadeInUp_0.5s_ease-out_both]">
+        {/* RESPONSIVE: h-auto md:h-[100px], p-[15px] md:p-[10px], flex-col md:flex-row, justify-center md:justify-end, gap-[15px] md:gap-0 */}
+        <span className="font-bold text-xl md:text-2xl"> {/* RESPONSIVE: text-xl md:text-2xl */}
           Total:{" "}
           {getTotal().toLocaleString("en-US", {
             minimumFractionDigits: 2,
@@ -201,7 +217,8 @@ try{
         </span>
         <button
           onClick={placeOrder}
-          className="absolute left-[10px] w-[200px] text-2xl md:text-md md:w-[150px] h-[50px] cursor-pointer rounded-lg shadow-2xl bg-accent border-[2px] border-accent text-white hover:bg-white hover:text-accent   hover:scale-105 transition-all duration-200"
+          className="w-full md:w-[150px] md:absolute md:left-[10px] text-xl md:text-md h-[50px] cursor-pointer rounded-lg shadow-2xl bg-accent border-[2px] border-accent text-white hover:bg-white hover:text-accent   hover:scale-105 transition-all duration-200"
+          /* RESPONSIVE: w-full md:w-[150px], md:absolute md:left-[10px], text-xl md:text-md */
         >
           Place Order
         </button>
@@ -234,7 +251,6 @@ try{
   );
     
 }
-
 
 
 /*
