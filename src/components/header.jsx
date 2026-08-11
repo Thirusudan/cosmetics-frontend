@@ -10,7 +10,7 @@ import { AiOutlineUsergroupDelete } from "react-icons/ai";
 export default function Header(){
     const navigate = useNavigate()
     const [isOpen,setIsOpen] = useState(false)  //1
-     const token = localStorage.getItem("token")d
+     const token = localStorage.getItem("token")
     return(
           <header className="h-[100px] bg-accent flex justify-center items-center relative">
 {/*4*/}        {isOpen && 
