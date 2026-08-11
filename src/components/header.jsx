@@ -20,7 +20,7 @@ export default function Header(){
                <div className="h-full w-[350px] bg-white flex flex-col">
                <div className="w-full h-[100px]  bg-accent flex pl-[45px] flex-row items-center gap-[2]">
 {/*5*/}                 <GiHamburgerMenu className="text-white  md:hidden text-5xl" onClick={()=>{
-                    setIsOpen(close)
+                    setIsOpen(false)
                  }}/>
                   <img className="w-[300px] h-[80px] object-cover cursor-pointer" onClick={()=>{
               navigate("/")
