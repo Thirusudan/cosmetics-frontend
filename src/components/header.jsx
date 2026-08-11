@@ -3,12 +3,16 @@ import { BiCart, BiStore } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { HiHome } from "react-icons/hi";
 import { Link,useNavigate } from "react-router-dom";
+import { AiFillPhone } from "react-icons/ai";
+import { AiTwotoneStar } from "react-icons/ai";
+import { AiOutlineUsergroupDelete } from "react-icons/ai";
+
+// fix build
 
 export default function Header(){
     const navigate = useNavigate()
     const [isOpen,setIsOpen] = useState(false)  //1
-    const token = localStorage.getItem("token")
-
+     const token = localStorage.getItem("token")
     return(
           <header className="h-[100px] bg-accent flex justify-center items-center relative">
 {/*4*/}        {isOpen && 
@@ -16,7 +20,7 @@ export default function Header(){
                <div className="h-full w-[350px] bg-white flex flex-col">
                <div className="w-full h-[100px]  bg-accent flex pl-[45px] flex-row items-center gap-[2]">
 {/*5*/}                 <GiHamburgerMenu className="text-white  md:hidden text-5xl" onClick={()=>{
-                    setIsOpen(close)
+                    setIsOpen(false)
                  }}/>
                   <img className="w-[300px] h-[80px] object-cover cursor-pointer" onClick={()=>{
               navigate("/")
@@ -42,6 +46,53 @@ export default function Header(){
                 Products
                </button>
 
+               <button className="text-accent text-2xl flex flex-row items-center" onClick={()=>{
+                setIsOpen(false)
+                navigate("/about-us")
+               }}>
+                <AiOutlineUsergroupDelete className="text-accent text-2xl mr-2"/>
+                AboutUs
+               </button>
+
+                <button className="text-accent text-2xl flex flex-row items-center" onClick={()=>{
+                setIsOpen(false)
+                navigate("/contact-us")
+               }}>
+                <AiTwotoneStar className="text-accent text-2xl mr-2"/>
+              Reviews
+               </button>
+
+
+               
+               <button className="text-accent text-2xl flex flex-row items-center" onClick={()=>{
+                setIsOpen(false)
+                navigate("/contact-us")
+               }}>
+                <AiFillPhone className="text-accent text-2xl mr-2"/>
+                ContactUs
+               </button>
+
+               {/* RESPONSIVE: Cart added to mobile drawer */}
+               <button className="text-accent text-2xl flex flex-row items-center" onClick={()=>{
+                setIsOpen(false)
+                navigate("/cart")
+               }}>
+                <BiCart className="text-accent text-2xl mr-2"/>
+                Cart
+               </button>
+
+               {/* RESPONSIVE: Logout added to mobile drawer, only shown when logged in */}
+               {
+                token!= null &&
+                <button className="text-accent text-2xl flex flex-row items-center mt-[10px]" onClick={()=>{
+                    setIsOpen(false)
+                    localStorage.removeItem("token");
+                    navigate("/login")
+                }}>
+                 Logout
+                </button>
+               }
+
                </div>
 
 
@@ -66,9 +117,10 @@ export default function Header(){
            <Link to="/about-us" className="text-white text-xl ml-4 font-bold">About us</Link>
            <Link to="/contact-us" className="text-white text-xl ml-4 font-bold">Contact Us</Link>
            <Link to="/cart" className="absolute right-[215px]">
-           <BiCart className="text-white text-3xl m1-4  hover:text-white   hover:scale-115 transition-all duration-200"/>
+           <BiCart className="text-white text-3xl m1-4"/>
            </Link>
-           {
+
+            {
                 token!= null&& <button className="absolute right-[50px] w-[100px] p-[2px] text-white text-xl m1-4 cursor-pointer rounded-lg shadow-2xl  border-[2px] border-white text-white hover:bg-white hover:text-accent   hover:scale-105 transition-all duration-200" onClick={()=>{
                         localStorage.removeItem("token");
                         navigate("/login")
@@ -76,11 +128,11 @@ export default function Header(){
                 Logout
                 </button>
            }
+           
            </div>
             </header>
       )
   }
-
 /*
 1. One simple on/off switch. isOpen starts false — meaning the mobile sidebar menu is closed. This single variable decides whether the mobile drawer menu shows or not.
 
