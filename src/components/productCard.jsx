@@ -5,7 +5,7 @@ export default function ProductCard(props){
     return(
        <Link to={"/overview/"+product.productId} className="min-w-[300px] h-[400px] flex flex-col shadow-2xl shrink-0 rounded-2xl overflow-hidden    group transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:-translate-y-2 bg-blue-900"> 
 
-       <img src={product.images[0]} className="w-full h-[275px] object-cover     0bject-cover  transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-translate-x-2 group-hover:-translate-y-2 bg-red-900 " />  
+       <img src={product.images[0]} className="w-full h-[275px] object-cover     0bject-cover  transition-transform duration-500 ease-out group-hover:scale-125 group-hover:-translate-x-2 group-hover:-translate-y-2 " />  
         <div className="w-full h-[125px] flex flex-col p-[3px] bg-[#F5F1E8]">
             <span className="text-gray-400 text-[12px]">{product.productId}</span>
             <h1 className="text-lg font-bold">
