@@ -102,7 +102,7 @@ try{
     console.log(cart)
 
     return (
-    <div className="w-[100vw] max-w-[100vw] h-screen flex flex-col px-[10px] py-[40px] items-center overflow-y-auto"> {/* RESPONSIVE: overflow-y-auto added */}
+    <div className="w-[100vw] max-w-[100vw] h-screen flex flex-col px-[10px] py-[40px] items-center overflow-y-auto bg-primary"> {/* RESPONSIVE: overflow-y-auto added */}
       {cart.map((item, index) => {
         return (
           <div

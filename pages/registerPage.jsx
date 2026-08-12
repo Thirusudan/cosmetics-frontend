@@ -40,7 +40,7 @@ const navigate = useNavigate()
 
     return(
         <div className="w-full h-full flex justify-center items-center ">
-         <div className="w-[900px] h-[600px] bg-[url('/home.jpg')] bg-cover bg-center flex justify-center items-center rounded-[35px] animate-[fadeInUp_0.7s_ease-out_both]">
+         <div className="w-[900px] h-[600px] bg-[url('/Register.jpg')] bg-cover bg-center flex justify-center items-center rounded-[35px] animate-[fadeInUp_0.7s_ease-out_both]">
          <div>
         <div className="w-[500px] h-[500px] bg-white/55 backdrop-blur-[3px] shadow-xl rounded-[30px] relative gap-[10px] text-secondary flex flex-col justify-center items-center">
             <h1 className="text-2xl top-[10px] text-center w-full h-[50px] font-bold text-black animate-[fadeInUp_0.5s_ease-out_0.3s_both]">Register Page</h1>
