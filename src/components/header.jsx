@@ -56,7 +56,7 @@ export default function Header(){
 
                 <button className="text-accent text-2xl flex flex-row items-center" onClick={()=>{
                 setIsOpen(false)
-                navigate("/contact-us")
+                navigate("/reviews")
                }}>
                 <AiTwotoneStar className="text-accent text-2xl mr-2"/>
               Reviews
