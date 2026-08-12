@@ -56,7 +56,7 @@ export default function LoginPage(){
     }
 
     return (
-        <div className="w-[900px] h-[600px] bg-[url('/home.jpg')] bg-cover bg-center flex justify-center items-center animate-[fadeInUp_0.7s_ease-out_both]">
+        <div className="w-[900px] h-[600px] bg-[url('/Register.jpg')] bg-cover bg-center flex justify-center items-center animate-[fadeInUp_0.7s_ease-out_both]">
             
          <div className="h-[500px] w-[500px] bg-white/55 backdrop-blur-[3px]  shadow-xl rounded-[30px] relative text-black flex flex-col items-center justify-center gap-[20px]">
         <h1 className="absolute top-[20px] text-2xl font-bold text-center my-5  animate-[fadeInUp_0.5s_ease-out_0.3s_both]">Login</h1>

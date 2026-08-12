@@ -11,7 +11,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="w-full min-h-screen ">
+    <div className="w-full min-h-screen bg-primary ">
 
       <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center md:items-start py-[30px] md:py-[50px] gap-[40px] md:gap-[100px] px-[20px] md:px-0">
 
@@ -57,7 +57,7 @@ export default function HomePage() {
     </div>
 
     {/* RIGHT - image — now appears FIRST on mobile, stays on the right on desktop */}
-    <div className="order-first md:order-last w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[500px] md:h-[470px] bg-[url('/register1.jpg')] bg-cover bg-center rounded-full animate-[fadeInRight_1s_ease-out_0.2s_both] transition-transform duration-500 hover:scale-105">
+    <div className="order-first md:order-last w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[500px] md:h-[470px] bg-[url('/home1.jpg')] bg-cover bg-center rounded-full animate-[fadeInRight_1s_ease-out_0.2s_both] transition-transform duration-500 hover:scale-105">
     </div>
 
 </div>

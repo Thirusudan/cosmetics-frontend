@@ -8,12 +8,12 @@ export default function CartPage(){
     const navigate = useNavigate()
     console.log(cart)
     return(
-        <div className="w-[100vw] max-w-[100vw] h-screen flex flex-col px-[10px] items-center overflow-y-auto">
+        <div className="w-[100vw] max-w-[100vw] h-screen flex flex-col px-[10px] items-center overflow-y-auto bg-primary">
         {
             cart.map(
                 (item,index)=>{
                 return(
-                    <div key={item.productId} className="w-full md:w-[800px] h-auto md:h-[100px] m-[10px] shadow-2xl flex flex-col md:flex-row items-center relative animate-[fadeInUp_0.4s_ease-out_both] p-[15px] md:p-0 gap-[10px] md:gap-0"
+                    <div key={item.productId} className="w-full md:w-[800px] h-auto md:h-[100px] m-[10px] shadow-2xl flex flex-col md:flex-row items-center relative animate-[fadeInUp_0.4s_ease-out_both] p-[15px] md:p-0 gap-[10px] md:gap-0 "
                     style={{ animationDelay: `${index * 0.08}s` }}>
 
                  <div className="w-full md:w-[100px] flex flex-row md:flex-col justify-start md:justify-center items-center gap-[15px] md:gap-0 text-2xl md:text-md">
