@@ -27,7 +27,7 @@ export default function Aboutuspage(){
     const [cardsRef, cardsInView] = useInView()
 
     return(
-        <div className="w-full flex flex-col lg:flex-row gap-10 px-4"> {/* RESPONSIVE: flex-col lg:flex-row (was buggy flex-col flex-row together before) */}
+        <div className="w-full flex flex-col lg:flex-row gap-10 px-4 bg-primary"> {/* RESPONSIVE: flex-col lg:flex-row (was buggy flex-col flex-row together before) */}
             <div 
               ref={imgRef}
               className={`w-full lg:w-[45%] h-[280px] sm:h-[380px] lg:h-[490px] bg-[url('/aboutus.jpg')] bg-cover mt-[30px] ml-0 lg:ml-[20px] rounded-[20px] lg:rounded-[30px] transition-all duration-1000 ease-out ${
@@ -77,7 +77,7 @@ export default function Aboutuspage(){
   </p>
            </div>
 
-             <div className={`w-full sm:w-[200px] h-auto sm:h-[250px] bg-[#e8efe4] border border-[#a9c2a0] rounded-xl shadow-sm p-[15px] flex flex-col transition-all duration-700 ease-out hover:-translate-y-2 hover:shadow-lg ${
+             <div className={`w-full sm:w-[200px] h-auto sm:h-[250px] bg-[#e8efe4] border border-[#a9c2a0] rounded-xl shadow-sm p-[10px] flex flex-col transition-all duration-700 ease-out hover:-translate-y-2 hover:shadow-lg ${
                cardsInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
              }`} style={{ transitionDelay: cardsInView ? "500ms" : "0ms" }}>
             {/* RESPONSIVE: w-full sm:w-[200px], h-auto sm:h-[250px] */}

@@ -33,7 +33,7 @@ export default function ContactusPage(){
     }
 
     return(
-        <div className="w-full h-full ">
+        <div className="w-full min-h-screen bg-primary ">
 
             <div className="text-center animate-[fadeInUp_0.5s_ease-out_both] px-[20px]"> {/* RESPONSIVE: px-[20px] */}
             <p className="text-lg md:text-xl pt-[20px]">We're here to help and answer any question you might have.We look forward to hearing from you</p> {/* RESPONSIVE: text-lg md:text-xl */}

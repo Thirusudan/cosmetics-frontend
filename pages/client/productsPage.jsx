@@ -29,7 +29,7 @@ export default function ProductsPage(){
 )
 
     return(
-    <div className="w-full h-full">
+    <div className="w-full h-full bg-primary">
         <div className="w-full h-[100px] flex justify-center items-center animate-[fadeInUp_0.6s_ease-out_both]">
         <input type="text"
          placeholder="Search products..." 
